@@ -8,15 +8,15 @@ Mini-Lektionen, Werkzeugkasten und eine Übungsdatenbank mit Website.
 
 ## Inhalt
 
-| Ordner | Inhalt |
-|---|---|
-| `konzept/` | Kurzkonzept für die Fachschaft |
-| `standortbestimmung/` | Standortbestimmung mit Lösungen und Auswertungsraster |
-| `minilektionen/` | Mini-Lektionen (Handout und Lehrpersonenversion) |
-| `werkzeugkasten/` | Einheiten W1 «Sprache und Mathematik», W2 «Vertrauen in die eigene Mathematik» |
-| `uebungen/` | Übungsdatenbank (`db/`), Generator `blatt.py`, Website-Build `build_site.py` |
-| `site/` | Website: Auswertungsraster eingeben, Übungspaket als PDF erhalten |
-| `foerderkurs.sty` | gemeinsames Layout aller Dokumente |
+| Ordner                | Inhalt                                                                         |
+| --------------------- | ------------------------------------------------------------------------------ |
+| `konzept/`            | Kurzkonzept für die Fachschaft                                                 |
+| `standortbestimmung/` | Standortbestimmung mit Lösungen und Auswertungsraster                          |
+| `minilektionen/`      | Mini-Lektionen (Handout und Lehrpersonenversion)                               |
+| `werkzeugkasten/`     | Einheiten W1 «Sprache und Mathematik», W2 «Vertrauen in die eigene Mathematik» |
+| `uebungen/`           | Übungsdatenbank (`db/`), Generator `blatt.py`, Website-Build `build_site.py`   |
+| `site/`               | Website: Auswertungsraster eingeben, Übungspaket als PDF erhalten              |
+| `foerderkurs.sty`     | gemeinsames Layout aller Dokumente                                             |
 
 ## Website
 
@@ -27,7 +27,7 @@ verlassen den Browser nicht.
 
 Bei jeder Änderung auf `main` baut die GitHub Action
 (`.github/workflows/website.yml`) alle Übungsblätter neu und veröffentlicht die
-Seite. Einmalig einrichten: *Settings → Pages → Source: GitHub Actions*.
+Seite. Einmalig einrichten: _Settings → Pages → Source: GitHub Actions_.
 
 Lokal testen:
 
@@ -38,7 +38,7 @@ cd site && python3 -m http.server   # dann http://localhost:8000 öffnen
 ```
 
 Regel für den Vorschlag: Pro Strang wird das tiefste Niveau vorgeschlagen, das
-nicht sicher gelöst ist (die *Bruchstelle*). Ist es nur teilweise gelöst, kommt
+nicht sicher gelöst ist (die _Bruchstelle_). Ist es nur teilweise gelöst, kommt
 auf Wunsch das nächste Niveau dazu. Die Regel steht in `site/app.js`
 (Funktion `vorschlaege`).
 
