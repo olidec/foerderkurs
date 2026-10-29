@@ -1,0 +1,511 @@
+\documentclass[11pt]{exam}
+\usepackage{foerderkurs}
+
+\begin{document}
+
+\werkzeug{W1}{Sprache und Mathematik}
+
+Viele Schwierigkeiten in Mathematik sind eigentlich Schwierigkeiten mit der
+Sprache: Ein Wort bedeutet in der Mathematik etwas anderes als im Alltag, ein
+Satz wird Wort für Wort übersetzt statt dem Sinn nach, oder ein Ergebnis wird
+nicht zurück in die Situation übertragen. Diese Einheit besteht aus drei
+Teilen, die über mehrere Wochen verteilt behandelt werden.
+
+\begin{lehrperson}[Überblick]
+\textbf{Aufbau:} drei Teile zu je ca.\ 15 Minuten Instruktion, danach Übungen
+in der Übungszeit. Die Teile werden über das Jahr verteilt, z.\,B.:
+
+\begin{tabular}{@{}llp{7.2cm}@{}}
+  Teil 1 & Wörter und Operatoren   & früh im Algebra-Fundament, zusammen mit Mini-Lektion 0.1 \\
+  Teil 2 & Vom Text zur Gleichung  & vor den linearen Gleichungen (Mini-Lektionen 6.1/6.2) \\
+  Teil 3 & Von der Mathematik zurück zum Text & in der Phase Proportionalität und Funktionen
+\end{tabular}
+
+\textbf{Wichtiger als die Teile selbst:} Die Routine aus Teil 2 und die
+Antwortsätze aus Teil 3 werden danach bei \emph{jeder} Textaufgabe im Kurs
+wieder eingefordert. Erst die Wiederholung macht daraus ein Werkzeug.
+
+\textbf{Verknüpfung:} Standortbestimmung Strang 9 (Aufgaben 9.1--9.6) sowie
+4.2, 7.3, 7.4. Hinweis zur Diagnose: Wer eine Aufgabe als reine Rechnung löst,
+dieselbe Aufgabe als Text aber nicht, hat ein Sprachproblem und kein
+Rechenproblem.
+
+\textbf{Deutsch als Zweitsprache:} Für Schülerinnen und Schüler mit einer
+anderen Erstsprache lohnt es sich, im Glossar eine dritte Spalte für die
+Übersetzung in die Erstsprache anzubieten.
+\end{lehrperson}
+
+% ===========================================================================
+\werkzeugteil{1}{Wörter und Operatoren}
+  {die wichtigsten mathematischen Fachwörter verstehen und weiss, was eine
+   Aufgabe mit «berechnen», «begründen» oder «zeigen» von mir verlangt.}
+
+\begin{einstieg}
+Viele Wörter haben im Alltag eine andere Bedeutung als in der Mathematik.
+Ergänzen Sie die Tabelle.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\newcommand{\lsg}[1]{\ifprintanswers\small #1\fi}
+\begin{tabular}{|l|p{5.3cm}|p{5.3cm}|}
+  \hline
+  \textbf{Wort} & \textbf{im Alltag} & \textbf{in der Mathematik} \\ \hline
+  Produkt   & \lsg{Ware, Erzeugnis}         & \lsg{Ergebnis einer Multiplikation} \\ \hline
+  Differenz & \lsg{Unterschied, Streit}     & \lsg{Ergebnis einer Subtraktion} \\ \hline
+  Lösung    & \lsg{Ausweg; Flüssigkeit}     & \lsg{Zahl, die eine Gleichung erfüllt} \\ \hline
+  Mittel    & \lsg{Hilfsmittel, Medikament} & \lsg{Durchschnitt} \\ \hline
+  Bruch     & \lsg{Knochenbruch, Regelbruch}& \lsg{Zahl wie $\frac{3}{4}$} \\ \hline
+\end{tabular}
+\end{center}
+\end{einstieg}
+
+\begin{lehrperson}[Teil 1, Einstieg]
+Zu zweit 3 Minuten lang ausfüllen lassen, dann sammeln. Ziel ist nicht
+Vollständigkeit, sondern die Einsicht: Mathematik ist eine eigene Sprache mit
+eigenen Wörtern. Schülerinnen und Schüler können weitere Beispiele nennen
+(z.\,B.\ Wurzel, Potenz, Umfang, Term).
+\end{lehrperson}
+
+\begin{merke}
+\textbf{Die vier Grundbegriffe.} Bei Differenz und Quotient kommt es auf die
+Reihenfolge an.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llll}
+  \textbf{Summe}      & $a + b$           & «die Summe von $a$ und $b$»      & $a$, $b$: Summanden \\
+  \textbf{Differenz}  & $a - b$           & «die Differenz von $a$ und $b$»  & \\
+  \textbf{Produkt}    & $a \cdot b$       & «das Produkt von $a$ und $b$»    & $a$, $b$: Faktoren \\
+  \textbf{Quotient}   & $a \geteilt b$    & «der Quotient von $a$ und $b$»   & $a$: Dividend, $b$: Divisor
+\end{tabular}
+\end{center}
+
+\textbf{Vergleichen.} Achten Sie auf die Reihenfolge bei «weniger als»:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll@{\qquad}ll}
+  um $3$ grösser als $x$      & $x + 3$  & $3$-mal so gross wie $x$ & $3 \cdot x$ \\
+  um $3$ kleiner als $x$      & $x - 3$  & die Hälfte von $x$       & $\frac{x}{2}$ \\
+  $3$ weniger als $x$         & $x - 3$  & höchstens $3$            & $\leq 3$ \\
+  $x$ vermindert um $3$       & $x - 3$  & mindestens $3$           & $\geq 3$
+\end{tabular}
+\end{center}
+\end{merke}
+
+\begin{merke}
+\textbf{Operatoren} sagen, was eine Aufgabe von Ihnen erwartet:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lp{11cm}@{}}
+  \textbf{angeben, nennen}   & nur das Ergebnis, ohne Begründung \\
+  \textbf{berechnen}         & Ergebnis \emph{mit} nachvollziehbarem Rechenweg \\
+  \textbf{bestimmen}         & Ergebnis finden; der Weg (Rechnung, Zeichnung) ist frei wählbar \\
+  \textbf{vereinfachen}      & einen Term so umformen, dass er kürzer oder übersichtlicher wird \\
+  \textbf{begründen}         & in Worten erklären, \emph{warum} etwas gilt \\
+  \textbf{zeigen, nachweisen}& das Ergebnis ist bekannt; der Weg dorthin ist gefragt \\
+  \textbf{skizzieren}        & ungefähr, die wichtigsten Merkmale, ohne Massstab \\
+  \textbf{zeichnen}          & genau, mit Massstab und Hilfsmitteln
+\end{tabular}
+\end{center}
+\end{merke}
+
+\begin{lehrperson}[Operatoren]
+Die Operatoren werden nicht an allen Schulen und von allen Lehrpersonen gleich
+streng verwendet. Es lohnt sich, die Liste mit den Kolleginnen und Kollegen
+abzugleichen. Für die Schülerinnen und Schüler ist vor allem der Unterschied
+zwischen \emph{angeben}, \emph{berechnen} und \emph{begründen} wichtig, weil
+er an Prüfungen über Punkte entscheidet.
+\end{lehrperson}
+
+\begin{schreibweisen}
+\begin{itemize}
+  \item «Das Produkt \emph{von} $3$ und $5$» und «das Produkt \emph{aus} $3$
+        und $5$» bedeuten dasselbe.
+  \item In englischen Videos: sum, difference, product, quotient; «less
+        than» hat dieselbe Falle: «$3$ less than $x$» ist $x - 3$.
+  \item KI-Programme verwenden die Operatoren oft weniger genau. Ein
+        «Beweis» in einer KI-Antwort ist manchmal nur ein Beispiel.
+\end{itemize}
+\end{schreibweisen}
+
+\begin{questions}
+
+\question Schreiben Sie als Rechnung und berechnen Sie das Ergebnis.
+\begin{parts}
+  \part der Quotient von $48$ und $6$
+  \part die Differenz von $7$ und $12$
+  \part das Produkt aus der Summe von $3$ und $5$ und der Zahl $4$
+  \part die Summe aus dem Produkt von $3$ und $5$ und der Zahl $4$
+\end{parts}
+\begin{solution}
+  a) $48 \geteilt 6 = 8$ \quad b) $7 - 12 = -5$ \quad
+  c) $(3 + 5) \cdot 4 = 32$ \quad d) $3 \cdot 5 + 4 = 19$
+\end{solution}
+\raum{3cm}
+
+\question Schreiben Sie als Term.
+\begin{multicols}{2}
+\begin{parts}
+  \part um $7$ grösser als $x$
+  \part $7$-mal so gross wie $x$
+  \part $7$ weniger als $x$
+  \part $x$ vermindert um das Doppelte von $y$
+  \part das Quadrat der Summe von $a$ und $b$
+  \part die Summe der Quadrate von $a$ und $b$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $x + 7$ \quad b) $7x$ \quad c) $x - 7$ \quad d) $x - 2y$ \quad
+  e) $(a + b)^2$ \quad f) $a^2 + b^2$
+\end{solution}
+\raum{3cm}
+
+\question Was erwartet die Aufgabe von Ihnen? Beschreiben Sie in einem Satz,
+was Sie aufschreiben müssen. Sie müssen die Aufgaben \emph{nicht} lösen.
+\begin{parts}
+  \part Geben Sie die Lösung der Gleichung $2x = 10$ an.
+  \part Berechnen Sie den Flächeninhalt eines Rechtecks mit den Seiten
+        $4$\,cm und $7$\,cm.
+  \part Begründen Sie, warum $2a + 3b$ nicht gleich $5ab$ ist.
+  \part Zeigen Sie, dass $(a + b)^2 = a^2 + 2ab + b^2$ gilt.
+\end{parts}
+\begin{solution}
+  a) Nur das Ergebnis: $x = 5$. \
+  b) Rechnung und Ergebnis: $4 \cdot 7 = 28$, also $28$\,cm$^2$. \
+  c) Eine Erklärung in Worten, z.\,B.\ mit einem Gegenbeispiel: Für $a = 1$
+  und $b = 2$ ist $2a + 3b = 8$, aber $5ab = 10$. (Achtung: $a = b = 1$ ergibt
+  zufällig zweimal $5$ und ist darum kein Gegenbeispiel.) \
+  d) Eine Herleitung, z.\,B.\ durch Ausmultiplizieren von $(a + b) \cdot (a + b)$.
+\end{solution}
+\raum{3.5cm}
+
+\end{questions}
+
+\begin{lehrperson}[Übung 3c]
+Bei 3c wählen viele zuerst $a = b = 1$ und erhalten zufällig zweimal $5$. Das ist ein guter Anlass zu besprechen, dass ein
+einzelnes passendes Beispiel nichts beweist, ein einzelnes Gegenbeispiel aber
+genügt, um eine Aussage zu widerlegen.
+\end{lehrperson}
+
+\begin{transfer}
+Operatoren gibt es in allen Fächern: In Geschichte heisst «erläutern» etwas
+anderes als «nennen», in Biologie «beschreiben» etwas anderes als
+«erklären». Wer an einer Prüfung zuerst den Operator markiert, weiss, wie
+ausführlich die Antwort sein muss.
+\end{transfer}
+
+\begin{tcolorbox}[fkbasis, colframe=fkgrau, colback=white, title={Ihr Glossar}]
+Legen Sie auf den letzten Seiten Ihres Hefts ein \textbf{Glossar} an: Wort,
+Bedeutung in der Mathematik, ein Beispiel. Ergänzen Sie es jedes Mal, wenn
+Ihnen im Kurs ein neues Fachwort begegnet.
+\end{tcolorbox}
+
+\begin{exitfrage}
+Schreiben Sie als Term: «$5$ weniger als das Dreifache von $y$».
+\ifprintanswers\par\medskip\textbf{Lösung:} $3y - 5$
+\else\par\vspace{1.5cm}\fi
+\end{exitfrage}
+
+% ===========================================================================
+\newpage
+\werkzeugteil{2}{Vom Text zur Gleichung}
+  {eine Textaufgabe mit einer festen Routine in eine Gleichung übersetzen und
+   meine Gleichung mit einer Zahlenprobe überprüfen.}
+
+\begin{einstieg}
+An einer Schule gibt es sechsmal so viele Schülerinnen und Schüler wie
+Lehrpersonen. Schreiben Sie diese Aussage als Gleichung. Verwenden Sie $S$
+für die Anzahl Schülerinnen und Schüler und $L$ für die Anzahl Lehrpersonen.
+\ifprintanswers\else\par\vspace{1.5cm}\fi
+\end{einstieg}
+
+\begin{lehrperson}[Teil 2, Einstieg]
+Diese Aufgabe stammt aus einer bekannten Studie mit Studierenden; auch dort
+schrieb ein grosser Teil $6S = L$. Der Fehler entsteht durch
+Wort-für-Wort-Übersetzung: «sechsmal $S$ gleich $L$». Antworten sammeln,
+ohne aufzulösen, und dann die Zahlenprobe aus dem Merkkasten vorführen:
+Bei $L = 10$ Lehrpersonen müsste es $60$ Schülerinnen und Schüler geben. Setzt
+man das in $6S = L$ ein, erhält man $360 = 10$. Die Gleichung beschreibt also
+nicht die Situation.
+\end{lehrperson}
+
+\begin{merke}
+\textbf{Routine in vier Schritten}
+\begin{enumerate}
+  \item \textbf{Lesen:} zweimal, einmal für den Überblick und einmal genau.
+  \item \textbf{Markieren:} Was ist gegeben? Was ist gesucht? Was ist
+        überflüssig?
+  \item \textbf{Übersetzen:} Zuerst die Variable festlegen, und zwar als
+        \emph{Zahl}: «$x$: Anzahl Lehrpersonen», nicht «$x$ = Lehrpersonen».
+        Dann Satz für Satz in Mathematik übersetzen.
+  \item \textbf{Prüfen:} Zahlenprobe mit einfachen Zahlen, Gleichung zurück in
+        Worte übersetzen, Ergebnis auf Plausibilität prüfen.
+\end{enumerate}
+\end{merke}
+
+\begin{beispiel}[1: Die Zahlenprobe]
+«Es gibt sechsmal so viele Schülerinnen und Schüler wie Lehrpersonen.»
+
+Zahlenprobe: Bei $10$ Lehrpersonen gibt es $60$ Schülerinnen und Schüler.
+Die Anzahl Schülerinnen und Schüler ist also das Sechsfache der Anzahl
+Lehrpersonen:
+\[ S = 6 \cdot L \qquad\text{Probe: } 60 = 6 \cdot 10 \;\checkmark \]
+\falsch\quad $6 \cdot S = L$ \qquad Probe: $6 \cdot 60 = 360 \neq 10$
+\end{beispiel}
+
+\begin{beispiel}[2: Die ganze Routine]
+«Anna ist $4$ Jahre älter als Ben. Zusammen sind sie $30$ Jahre alt. Wie alt
+ist Anna?»
+\begin{enumerate}
+  \item[1.] Lesen: zweimal.
+  \item[2.] Gegeben: Altersunterschied $4$, Summe $30$. Gesucht: Annas Alter.
+  \item[3.] $x$: Alter von Ben in Jahren. Dann ist Anna $x + 4$ Jahre alt.
+            \[ x + (x + 4) = 30 \quad\Rightarrow\quad 2x + 4 = 30
+               \quad\Rightarrow\quad x = 13 \]
+            Anna ist $13 + 4 = 17$ Jahre alt.
+  \item[4.] Probe: $17 + 13 = 30$ \checkmark, und $17$ ist um $4$ grösser als
+            $13$ \checkmark.
+\end{enumerate}
+\end{beispiel}
+
+\begin{beispiel}[3: Schlüsselwörter können täuschen]
+«Nach einem Rabatt von $20\,\%$ kostet ein Velo insgesamt CHF 600. Wie viel
+kostete es vorher?»
+
+Das Wort «insgesamt» verleitet zum Addieren, und «Rabatt» zum Abziehen von
+$20\,\%$ von CHF 600. Beides ist falsch. Übersetzen statt Schlüsselwörter
+suchen:
+
+$x$: Preis vorher in CHF. Nach dem Rabatt bleiben $80\,\%$ davon:
+\[ 0.8 \cdot x = 600 \quad\Rightarrow\quad x = 750 \]
+Probe: $20\,\%$ von CHF 750 sind CHF 150, und $750 - 150 = 600$ \checkmark
+\end{beispiel}
+
+\begin{lehrperson}[Beispiele]
+Beispiel 3 knüpft an Aufgabe 9.2\,b der Standortbestimmung an (Schlüsselwort
+«mal»). Viele Schülerinnen und Schüler haben in der Primarschule gelernt,
+nach Signalwörtern zu suchen («insgesamt» heisst plus, «weniger» heisst
+minus). Diese Strategie funktioniert bei einfachen Aufgaben und versagt bei
+allen anderen. Es lohnt sich, das offen anzusprechen.
+\end{lehrperson}
+
+\begin{questions}
+
+\question Schreiben Sie als Gleichung. Legen Sie zuerst die Variablen fest und
+machen Sie danach die Zahlenprobe.
+\begin{parts}
+  \part In einem Parkhaus stehen dreimal so viele Autos wie Motorräder.
+  \part Lea hat CHF 5 mehr als Tim.
+  \part Ein Kilo Äpfel kostet halb so viel wie ein Kilo Kirschen.
+  \part Auf $4$ Katzen kommen $7$ Hunde.
+\end{parts}
+\begin{solution}
+  a) $A$: Anzahl Autos, $M$: Anzahl Motorräder; $A = 3 \cdot M$ \
+  b) $L$, $T$: Betrag in CHF; $L = T + 5$ \
+  c) $A$, $K$: Preis pro Kilo in CHF; $A = \frac{K}{2}$ oder $2 \cdot A = K$ \
+  d) $K$: Anzahl Katzen, $H$: Anzahl Hunde; $7 \cdot K = 4 \cdot H$
+  (Probe: $K = 4$, $H = 7$ ergibt $28 = 28$) oder $\frac{K}{H} = \frac{4}{7}$
+\end{solution}
+\raum{4cm}
+
+\question Lösen Sie mit der Routine. Schreiben Sie am Schluss einen
+Antwortsatz.
+\begin{parts}
+  \part Subtrahiert man $5$ vom Dreifachen einer Zahl, so erhält man $16$.
+        Wie heisst die Zahl?
+  \part Ein Rechteck ist $3$\,cm länger als breit. Sein Umfang beträgt
+        $26$\,cm. Wie lang und wie breit ist es?
+  \part Ein Kinoticket für Erwachsene kostet CHF 6 mehr als eines für
+        Jugendliche. Eine Familie bezahlt für $2$ Erwachsene und $3$
+        Jugendliche zusammen CHF 82. Wie viel kostet ein Ticket für
+        Jugendliche?
+\end{parts}
+\begin{solution}
+  a) $3x - 5 = 16$, \ $x = 7$. Die Zahl heisst $7$. \
+  b) $b$: Breite in cm; $2 \cdot b + 2 \cdot (b + 3) = 26$, \ $4b + 6 = 26$,
+  \ $b = 5$. Das Rechteck ist $8$\,cm lang und $5$\,cm breit. \
+  c) $j$: Preis für Jugendliche in CHF; $2 \cdot (j + 6) + 3j = 82$,
+  \ $5j + 12 = 82$, \ $j = 14$. Ein Ticket für Jugendliche kostet CHF 14
+  (Erwachsene CHF 20).
+\end{solution}
+\raum{6cm}
+
+\question Ein Zug fährt um 7:42 Uhr in Basel ab und legt die $90$\,km bis
+Zürich in $54$ Minuten zurück. Unterwegs hält er zweimal.
+Berechnen Sie die durchschnittliche Geschwindigkeit in km/h. Streichen Sie
+vorher alle Angaben durch, die Sie nicht brauchen.
+\begin{solution}
+  Überflüssig: Abfahrtszeit und Anzahl Halte. $54$\,min $= 0.9$\,h;
+  \ $90 \geteilt 0.9 = 100$. Die durchschnittliche Geschwindigkeit beträgt
+  $100$\,km/h.
+\end{solution}
+\raum{3cm}
+
+\end{questions}
+
+\begin{transfer}
+Dieselbe Routine hilft bei Aufgaben in Physik, Chemie und Wirtschaft und
+Recht: gegeben, gesucht, Grössen mit Einheiten festlegen, übersetzen, prüfen.
+Die Zahlenprobe ist ein allgemeines Werkzeug: Wer unsicher ist, ob eine
+Formel stimmt, setzt einfache Zahlen ein und schaut, ob das Ergebnis Sinn
+ergibt.
+\end{transfer}
+
+\begin{exitfrage}
+«In einem Verein gibt es viermal so viele Junioren wie Trainerinnen und
+Trainer.» Schreiben Sie dies als Gleichung mit $J$ und $T$ und machen Sie die
+Zahlenprobe.
+\ifprintanswers\par\medskip\textbf{Lösung:} $J = 4 \cdot T$; Probe mit
+$T = 5$: $J = 20$, und es gibt tatsächlich viermal so viele Junioren.
+\else\par\vspace{1.5cm}\fi
+\end{exitfrage}
+
+% ===========================================================================
+\newpage
+\werkzeugteil{3}{Von der Mathematik zurück zum Text}
+  {ein Rechenergebnis zurück in die Situation übertragen, sinnvoll runden und
+   einen Antwortsatz schreiben.}
+
+\begin{einstieg}
+Für einen Schulausflug fahren $200$ Personen mit Bussen, die je $45$ Plätze
+haben. Der Taschenrechner zeigt: $200 \geteilt 45 = 4.444\ldots$ \\
+Wie viele Busse braucht es?
+\ifprintanswers\else\par\vspace{1cm}\fi
+\end{einstieg}
+
+\begin{lehrperson}[Teil 3, Einstieg]
+Die Antworten $4.44$ oder $4$ sind in der Forschung gut dokumentiert: Viele
+Schülerinnen und Schüler rechnen korrekt, übertragen das Ergebnis aber nicht
+zurück in die Situation. Die Rechnung ist «fertig», sobald eine Zahl
+dasteht. Richtig ist: $5$ Busse.
+\end{lehrperson}
+
+\begin{merke}
+Eine Aufgabe ist erst gelöst, wenn das Ergebnis \textbf{zurück in die
+Situation} übertragen ist:
+\begin{itemize}
+  \item \textbf{Was bedeutet die Zahl?} Welche Einheit hat sie?
+  \item \textbf{Sinnvoll runden:} Die Situation entscheidet, ob auf- oder
+        abgerundet wird.
+  \item \textbf{Plausibel?} Ist das Ergebnis möglich und von der
+        Grössenordnung her vernünftig? Eine negative Anzahl Personen oder ein
+        Schulzimmer mit $18$\,m$^3$ Volumen deutet auf einen Fehler hin.
+  \item \textbf{Antwortsatz:} Die Frage in einem ganzen Satz beantworten,
+        mit Einheit.
+\end{itemize}
+\end{merke}
+
+\begin{beispiel}[1: Aufrunden oder abrunden?]
+\begin{itemize}
+  \item $200$ Personen, Busse mit $45$ Plätzen: $200 \geteilt 45 \approx 4.4$.
+        \textbf{Aufrunden:} Es braucht $5$ Busse, sonst bleiben Personen
+        zurück.
+  \item Ein Seil von $10$\,m wird in Stücke von $3$\,m geschnitten:
+        $10 \geteilt 3 \approx 3.3$. \textbf{Abrunden:} Es entstehen $3$ ganze
+        Stücke; der Rest von $1$\,m ist zu kurz.
+\end{itemize}
+Dieselbe Rechnung, eine andere Situation, eine andere Rundung.
+\end{beispiel}
+
+\begin{beispiel}[2: Ein Ergebnis vollständig deuten]
+Handyabo A kostet CHF 20 pro Monat plus CHF 0.10 pro Minute, Abo B pauschal
+CHF 35. Aus $20 + 0.1x = 35$ folgt $x = 150$.
+
+\falsch\quad «$150$»
+
+\richtig\quad «Bei genau $150$ Minuten kosten beide Abos gleich viel. Wer mehr
+als $150$ Minuten pro Monat telefoniert, fährt mit Abo B günstiger, wer
+weniger telefoniert, mit Abo A.»
+\end{beispiel}
+
+\begin{beispiel}[3: Terme in Worten lesen]
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ll}
+  $3 \cdot (x + 4)$ & das Dreifache der Summe von $x$ und $4$ \\
+  $3x + 4$          & die Summe aus dem Dreifachen von $x$ und $4$ \\
+  $\dfrac{a + b}{2}$ & die Hälfte der Summe von $a$ und $b$ (der Mittelwert)
+\end{tabular}
+\end{center}
+Wer einen Term in Worten lesen kann, erkennt seine Struktur: Was wird
+\emph{zuletzt} gerechnet? Danach richtet sich der Name (Summe, Produkt, \ldots).
+\end{beispiel}
+
+\begin{questions}
+
+\question Lösen Sie die Aufgaben und schreiben Sie jeweils einen Antwortsatz.
+\begin{parts}
+  \part Eine Dose Farbe reicht für $12$\,m$^2$. Eine Wand ist $50$\,m$^2$
+        gross. Wie viele Dosen braucht es?
+  \part Ein Lift darf höchstens $630$\,kg tragen. Wie viele Kisten zu je
+        $75$\,kg dürfen gleichzeitig transportiert werden?
+  \part Beim Lösen einer Textaufgabe zur Anzahl Personen in einem Raum
+        erhält Mia $x = -3$. Was bedeutet das?
+\end{parts}
+\begin{solution}
+  a) $50 \geteilt 12 \approx 4.2$; es braucht $5$ Dosen (aufrunden). \
+  b) $630 \geteilt 75 = 8.4$; es dürfen höchstens $8$ Kisten transportiert
+  werden (abrunden). \
+  c) Eine negative Anzahl Personen ist nicht möglich. Entweder hat Mia einen
+  Fehler gemacht (Gleichung oder Rechnung prüfen), oder die Situation hat keine
+  Lösung.
+\end{solution}
+\raum{4cm}
+
+\question Beschreiben Sie die Terme in Worten.
+\begin{multicols}{2}
+\begin{parts}
+  \part $a + \dfrac{b}{2}$
+  \part $2 \cdot (x - 1)$
+  \part $2x - 1$
+  \part $(a + b)^2$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) die Summe aus $a$ und der Hälfte von $b$ \
+  b) das Doppelte der Differenz von $x$ und $1$ \
+  c) die Differenz aus dem Doppelten von $x$ und $1$ \
+  d) das Quadrat der Summe von $a$ und $b$
+\end{solution}
+\raum{3cm}
+
+\question Erfinden Sie eine Situation aus dem Alltag, die zur Gleichung
+$5x + 20 = 95$ passt. Lösen Sie die Gleichung und schreiben Sie einen
+Antwortsatz zu Ihrer Situation.
+\begin{solution}
+  $x = 15$. Mögliche Situation: Ein Fitnessabo kostet eine einmalige Gebühr
+  von CHF 20 und CHF 5 pro Besuch. Jemand hat insgesamt CHF 95 bezahlt. Wie oft
+  war die Person im Fitness? Antwort: Die Person war $15$-mal im Fitness.
+\end{solution}
+\raum{4cm}
+
+\end{questions}
+
+\begin{lehrperson}[Übung 3]
+Übung 3 ist die Umkehrung der üblichen Textaufgabe und für viele
+ungewohnt. Sie zeigt sehr direkt, ob jemand versteht, was die Teile einer
+Gleichung bedeuten: Die $5$ muss ein Preis pro Stück oder eine ähnliche
+Rate sein, die $20$ ein fester Betrag. Gute Beispiele aus der Klasse eignen
+sich als Aufwärmaufgaben für spätere Lektionen.
+\end{lehrperson}
+
+\begin{transfer}
+Auch in den Naturwissenschaften ist eine Rechnung erst fertig, wenn das
+Ergebnis gedeutet ist: Eine Geschwindigkeit von $3000$\,km/h für ein Velo
+oder eine Masse von $-2$\,kg zeigt sofort, dass etwas nicht stimmt. Und in
+jedem Fach gilt: Wer die Frage mit einem ganzen Satz beantwortet, merkt eher,
+ob er sie überhaupt beantwortet hat.
+\end{transfer}
+
+\begin{exitfrage}
+$95$ Schülerinnen und Schüler sollen in Gruppen zu höchstens $6$ Personen
+eingeteilt werden. Wie viele Gruppen braucht es mindestens? Antworten Sie mit
+einem ganzen Satz.
+\ifprintanswers\par\medskip\textbf{Lösung:} $95 \geteilt 6 \approx 15.8$. Es
+braucht mindestens $16$ Gruppen.
+\else\par\vspace{1.5cm}\fi
+\end{exitfrage}
+
+\end{document}

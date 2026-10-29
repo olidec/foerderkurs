@@ -1,0 +1,208 @@
+/* Förderkurs Mathematik – Übungspaket
+   Leitidee: das Auswertungsraster auf Häuschenpapier, mit Tinte und
+   Korrekturstift. Eine Schrift (Atkinson Hyperlegible), linksbündig. */
+
+:root {
+  color-scheme: light;
+  --papier: #fbfcfe;
+  --karo: #dbe5f1;
+  --tinte: #0b3d6b;
+  --text: #1c2733;
+  --leise: #5b6b7c;
+  --linie: #b9c8da;
+  --sicher: #2f7a4c;
+  --teilweise: #a8701a;
+  --nicht: #b4413a;
+  --flaeche: #ffffff;
+  --fokus: #1f6fd1;
+  --karo-gross: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --papier: #141c26;
+    --karo: #1f2c3c;
+    --tinte: #9cc3ef;
+    --text: #e3e9f0;
+    --leise: #9aa8b8;
+    --linie: #34475e;
+    --sicher: #6cc08f;
+    --teilweise: #e0a94f;
+    --nicht: #ee8a82;
+    --flaeche: #1a2431;
+    --fokus: #7fb4ff;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  font-size: 106.25%;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--papier);
+}
+
+body {
+  margin: 0 auto;
+  max-width: 64rem;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+h1, h2 { color: var(--tinte); line-height: 1.2; }
+h1 { font-size: 2.1rem; margin: 0.1rem 0 0.8rem; }
+h2 { font-size: 1.3rem; margin: 0 0 0.6rem; }
+
+.kurs { margin: 0; color: var(--leise); }
+.einleitung { max-width: 38rem; margin: 0 0 2rem; }
+
+/* ---------------------------------------------------------------- Raster */
+.raster-bereich {
+  /* Häuschenpapier: das prägende Element der Seite */
+  background-color: var(--flaeche);
+  background-image:
+    linear-gradient(var(--karo) 1px, transparent 1px),
+    linear-gradient(90deg, var(--karo) 1px, transparent 1px);
+  background-size: var(--karo-gross) var(--karo-gross);
+  border: 1px solid var(--linie);
+  border-radius: 6px;
+  padding: 1.25rem 1.25rem 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.raster-kopf {
+  display: flex; flex-wrap: wrap; gap: 0.25rem 2rem;
+  align-items: baseline; justify-content: space-between;
+}
+.legende { margin: 0 0 0.75rem; font-size: 0.9rem; color: var(--leise); }
+.legende .punkt { margin-left: 0.6rem; }
+
+.raster-scroll { overflow-x: auto; }
+
+.raster {
+  border-collapse: collapse;
+  min-width: 46rem;
+  width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+.raster th, .raster td {
+  border: 1px solid var(--linie);
+  padding: 0.45rem 0.5rem;
+  background: color-mix(in srgb, var(--flaeche) 88%, transparent);
+  vertical-align: middle;
+}
+.raster thead th {
+  font-size: 1.05rem; color: var(--tinte); text-align: center;
+}
+.raster thead th span {
+  display: block; font-size: 0.78rem; font-weight: 400; color: var(--leise);
+}
+.raster .strang-kopf, .raster tbody th { text-align: left; }
+.raster tbody th { font-weight: 400; white-space: nowrap; }
+/* Strangnamen bleiben beim seitlichen Scrollen sichtbar */
+.raster .strang-kopf, .raster tbody th {
+  position: sticky; left: 0; z-index: 1; background: var(--flaeche);
+}
+.raster tbody th b { color: var(--tinte); margin-right: 0.35rem; }
+
+.zelle { text-align: center; white-space: nowrap; }
+.zelle.s2 { box-shadow: inset 0 -3px 0 var(--sicher); }
+.zelle.s1 { box-shadow: inset 0 -3px 0 var(--teilweise); }
+.zelle.s0 { box-shadow: inset 0 -3px 0 var(--nicht); }
+
+/* Punkte-Knopf: Aufgabennummer klein, Punktzahl gross */
+.punkt {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.6rem; height: 1.6rem; padding: 0 0.3rem;
+  border-radius: 4px; border: 1px solid var(--linie);
+  font-weight: 700; color: var(--leise); background: var(--flaeche);
+}
+.punkt.p2 { color: var(--flaeche); background: var(--sicher); border-color: var(--sicher); }
+.punkt.p1 { color: var(--flaeche); background: var(--teilweise); border-color: var(--teilweise); }
+.punkt.p0 { color: var(--flaeche); background: var(--nicht); border-color: var(--nicht); }
+
+button.wert {
+  font: inherit; cursor: pointer;
+  display: inline-flex; flex-direction: column; align-items: center;
+  gap: 0.1rem; margin: 0 0.15rem; padding: 0.15rem 0.2rem;
+  background: none; border: none; color: var(--leise);
+}
+button.wert small { font-size: 0.72rem; }
+
+.bruchstelle { text-align: center; font-weight: 700; color: var(--tinte); }
+.bruchstelle.ok { color: var(--sicher); font-weight: 400; }
+
+/* ---------------------------------------------------------------- Paket */
+.paket { max-width: 40rem; }
+
+.feld-name { display: block; margin-bottom: 1.5rem; }
+.feld-name input {
+  display: block; width: 100%; margin-top: 0.3rem;
+  font: inherit; padding: 0.5rem 0.6rem;
+  border: 1px solid var(--linie); border-radius: 4px;
+  background: var(--flaeche); color: var(--text);
+}
+
+#vorschlag { margin-bottom: 1.25rem; }
+#vorschlag p { margin: 0 0 0.5rem; }
+.vorschlag-liste { list-style: none; margin: 0; padding: 0; }
+.vorschlag-liste li { padding: 0.35rem 0; border-bottom: 1px solid var(--linie); }
+.vorschlag-liste li:last-child { border-bottom: none; }
+.vorschlag-liste label { display: flex; gap: 0.6rem; align-items: baseline; }
+.vorschlag-liste .id { font-weight: 700; color: var(--tinte); min-width: 2rem; }
+.vorschlag-liste .info { color: var(--leise); font-size: 0.9rem; }
+.vorschlag-liste .fehlt { color: var(--leise); }
+.vorschlag-liste li.ohne { padding-left: 1.6rem; }
+
+.hinzufuegen { margin-bottom: 1.25rem; }
+.hinzufuegen select {
+  display: block; margin-top: 0.3rem; font: inherit; padding: 0.4rem;
+  border: 1px solid var(--linie); border-radius: 4px;
+  background: var(--flaeche); color: var(--text); max-width: 100%;
+}
+
+.optionen {
+  border: none; padding: 0; margin: 0 0 1.5rem;
+}
+.optionen legend { font-weight: 700; margin-bottom: 0.3rem; color: var(--tinte); }
+.optionen label { display: flex; gap: 0.5rem; align-items: baseline; margin: 0.25rem 0; }
+
+button.haupt {
+  font: inherit; font-weight: 700; cursor: pointer;
+  padding: 0.65rem 1.4rem; border-radius: 4px;
+  border: 2px solid var(--tinte); background: var(--tinte); color: var(--papier);
+}
+button.haupt:disabled { opacity: 0.45; cursor: not-allowed; }
+button.leise {
+  font: inherit; font-size: 0.9rem; cursor: pointer;
+  padding: 0.3rem 0.7rem; margin-top: 0.75rem; border-radius: 4px;
+  border: 1px solid var(--linie); background: var(--flaeche); color: var(--leise);
+}
+
+.status { min-height: 1.5em; margin: 0.75rem 0 1.5rem; }
+.status.fehler { color: var(--nicht); }
+
+.befehl summary { cursor: pointer; color: var(--tinte); }
+.befehl pre {
+  white-space: pre-wrap; word-break: break-word;
+  background: var(--flaeche); border: 1px solid var(--linie);
+  border-radius: 4px; padding: 0.75rem; font-size: 0.85rem;
+}
+
+.fuss { margin-top: 3rem; color: var(--leise); font-size: 0.9rem; }
+.fuss p { margin: 0.2rem 0; }
+
+:focus-visible { outline: 3px solid var(--fokus); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+@media (max-width: 40rem) {
+  body { padding: 1.5rem 1rem 2rem; }
+  h1 { font-size: 1.7rem; }
+  .raster-bereich { padding: 1rem 0.75rem; }
+  .raster tbody th { white-space: normal; width: 9rem; }
+}

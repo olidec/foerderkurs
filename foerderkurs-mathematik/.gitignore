@@ -1,0 +1,16 @@
+# Erzeugte Dateien
+site/pdf/
+site/manifest.json
+uebungen/blaetter/
+*.pdf
+
+# LaTeX-Hilfsdateien
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Python
+__pycache__/

@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% foerderkurs.sty – gemeinsames Layout für die Mini-Lektionen
+%
+% Verwendung mit der exam-Klasse:
+%   \documentclass[11pt]{exam}
+%   \usepackage{foerderkurs}
+%
+% Schülerversion:      pdflatex ML_0-1_Gleichheitszeichen.tex
+% Lehrpersonenversion: pdflatex -jobname=ML_0-1_Gleichheitszeichen_LP \
+%                        "\def\mitloesungen{1}\input{ML_0-1_Gleichheitszeichen}"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{foerderkurs}[2026/10/29 Layout Mini-Lektionen]
+
+\ifdefined\mitloesungen \printanswers \fi
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage[nswissgerman]{babel}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{amssymb, amsmath, multicol, array, needspace, comment}
+\RequirePackage{tikz}
+\RequirePackage[margin=2cm]{geometry}
+\RequirePackage[most]{tcolorbox}
+
+\colorgrids
+\definecolor{GridColor}{gray}{0.7}
+\setlength{\gridsize}{4mm}
+\parindent 0ex
+\setlength{\parskip}{0.5ex}
+
+% ---------------------------------------------------------------------------
+% Kursname (an einer Stelle änderbar)
+% ---------------------------------------------------------------------------
+\newcommand{\kurs}{Förderkurs Mathematik}
+
+% ---------------------------------------------------------------------------
+% Notation (identisch zur Standortbestimmung)
+% ---------------------------------------------------------------------------
+\newcommand{\geteilt}{\mathbin{:}}
+\newcommand{\pkt}[2]{(#1\,|\,#2)}
+\newcommand{\kaestchen}{\fbox{\rule{0pt}{1.1em}\hspace{1.6em}}}
+\newcommand{\raum}[1]{\ifprintanswers\else\fillwithgrid{#1}\fi}
+% Linien für Reflexionsaufgaben (nur Schülerversion)
+\setlength{\linefillheight}{8mm}
+\newcommand{\zeilen}[1]{\ifprintanswers\else\fillwithlines{#1}\fi}
+\newcommand{\wahl}[1]{\mbox{$\Box$\,#1}}
+\newcommand{\wahlr}[1]{\mbox{\ifprintanswers$\blacksquare$\,\textbf{#1}\else$\Box$\,#1\fi}}
+\newcommand{\bruchabstand}{\setlength{\itemsep}{2.5ex}}
+% Umformungsangabe rechts einer Gleichung: \umf{-3}
+\newcommand{\umf}[1]{\qquad\big|\;#1}
+
+% ---------------------------------------------------------------------------
+% Farben und Kästen
+% ---------------------------------------------------------------------------
+\definecolor{fkblau}{RGB}{0,84,147}
+\definecolor{fkgruen}{RGB}{0,120,70}
+\definecolor{fkorange}{RGB}{200,100,0}
+\definecolor{fkgrau}{RGB}{90,90,90}
+
+\tcbset{fkbasis/.style={enhanced, breakable, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt, fonttitle=\bfseries}}
+
+\newtcolorbox{merke}{fkbasis, colframe=fkblau, colback=fkblau!5,
+  title={Merke}}
+\newtcolorbox{beispiel}[1][]{fkbasis, colframe=fkgruen, colback=white,
+  title={Beispiel #1}}
+\newtcolorbox{schreibweisen}{fkbasis, colframe=fkgrau, colback=fkgrau!5,
+  title={Andere Schreibweisen}}
+\newtcolorbox{ausblick}{fkbasis, colframe=fkorange, colback=fkorange!5,
+  title={Wozu brauche ich das?}}
+\newtcolorbox{einstieg}{fkbasis, colframe=fkblau, colback=white,
+  title={Zum Einstieg}}
+\newtcolorbox{transfer}{fkbasis, colframe=fkgruen, colback=fkgruen!5,
+  title={Auch in anderen Fächern}}
+\newtcolorbox{exitfrage}{fkbasis, colframe=fkblau, colback=white,
+  title={Exit-Frage}}
+
+% Hinweise für die Lehrperson: nur in der Lehrpersonenversion sichtbar
+\ifdefined\mitloesungen
+  \newtcolorbox{lehrperson}[1][]{fkbasis, colframe=red!60!black,
+    colback=red!3, title={Für die Lehrperson\ifx\relax#1\relax\else: #1\fi}}
+\else
+  \excludecomment{lehrperson}
+\fi
+
+% Richtig/falsch-Markierung in Beispielen
+\newcommand{\richtig}{\textcolor{fkgruen}{\textbf{richtig:}}}
+\newcommand{\falsch}{\textcolor{red!70!black}{\textbf{falsch:}}}
+
+% ---------------------------------------------------------------------------
+% Kopf eines Dokuments
+% \minilektion{Nummer}{Titel}{Ziel}   – Mini-Lektion (Instruktion)
+% \werkzeug{Nummer}{Titel}            – Einheit aus dem Werkzeugkasten,
+%                                       gegliedert mit \werkzeugteil
+% ---------------------------------------------------------------------------
+\newcommand{\lektionsnr}{}
+\newcommand{\lektionstitel}{}
+\newcommand{\fkkopf}[3]{% #1 Typ, #2 Nummer, #3 Titel
+  \renewcommand{\lektionsnr}{#2}%
+  \renewcommand{\lektionstitel}{#3}%
+  \pagestyle{headandfoot}
+  \firstpageheader{\kurs}{}{\ifprintanswers\textcolor{red!60!black}{\textbf{Lehrpersonenversion}}\fi}
+  \runningheader{\kurs}{#1 #2}{\ifprintanswers\textcolor{red!60!black}{Lehrperson}\fi}
+  \runningheadrule
+  \firstpageheadrule
+  \footer{}{Seite \thepage\ von \numpages}{}
+  \begin{center}
+    {\large\color{fkblau} #1 #2}\\[0.5ex]
+    {\LARGE\bfseries #3}
+  \end{center}
+  \vspace{0.5ex}
+  \ifprintanswers\else\noindent\textbf{Name:} \makebox[6cm]{\hrulefill}\par\medskip\fi}
+
+\newcommand{\zielbox}[1]{%
+  \begin{tcolorbox}[fkbasis, colframe=fkblau, colback=fkblau!10, title={Ziel}]
+    $\Box$\enspace Ich kann #1
+  \end{tcolorbox}}
+
+\newcommand{\minilektion}[3]{\fkkopf{Mini-Lektion}{#1}{#2}\zielbox{#3}}
+\newcommand{\werkzeug}[2]{\fkkopf{Werkzeugkasten}{#1}{#2}}
+
+% Übungsblatt aus der Übungsdatenbank: \uebungsblatt{Titel}{Untertitel}
+\newcommand{\uebungsblatt}[2]{%
+  \fkkopf{Übungsblatt}{}{#1}%
+  \ifx\relax#2\relax\else
+    \vspace{-1ex}\begin{center}\small\color{fkgrau}#2\end{center}\fi}
+
+% Kopfzeile einer Aufgabe aus der Datenbank:
+% \aufgabenkopf{ID}{Stufe 1-3}{Typ}{Mini-Lektion}{Brücke}
+\newcommand{\sterne}[1]{\ensuremath{%
+  \ifcase#1\or\scriptstyle\bigstar\or\scriptstyle\bigstar\bigstar
+  \or\scriptstyle\bigstar\bigstar\bigstar\fi}}
+\newcommand{\aufgabenkopf}[5]{%
+  {\footnotesize\color{fkgrau}\textsf{\textbf{#1}}\enspace\sterne{#2}%
+   \enspace\textsf{#3}%
+   \ifx\relax#5\relax\else\enspace\textsf{Brücke zu #5}\fi
+   \hfill\ifx\relax#4\relax\else\textsf{Mini-Lektion #4}\fi}\par\smallskip}
+
+% Teil einer Werkzeugkasten-Einheit: \werkzeugteil{Nummer}{Titel}{Ziel}
+\newcommand{\werkzeugteil}[3]{%
+  \par\needspace{8\baselineskip}\bigskip
+  \begin{tcolorbox}[enhanced, colback=fkblau, colframe=fkblau, arc=2pt,
+      left=6pt, top=3pt, bottom=3pt]
+    \color{white}\large\bfseries Teil #1: #2
+  \end{tcolorbox}
+  \zielbox{#3}
+  \setcounter{question}{0}}
+
+% Abschnittsüberschrift im Handout
+\newcommand{\abschnitt}[1]{\par\needspace{5\baselineskip}\medskip
+  {\large\bfseries\color{fkblau}#1}\par\smallskip}
+
+% exam-Klasse: deutsche Bezeichnungen
+\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\enspace}
+\checkboxchar{$\Box$}
+\checkedchar{$\blacksquare$}
+
+\endinput

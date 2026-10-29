@@ -1,0 +1,153 @@
+\documentclass[11pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Konzept Förderkurs Mathematik – Kurzfassung zur Diskussion
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[nswissgerman]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs, tabularx, array}
+\usepackage[hidelinks]{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{needspace}
+
+\definecolor{fkblau}{RGB}{0,84,147}
+
+\titleformat{\section}{\Large\bfseries\color{fkblau}}{\thesection}{0.6em}{}
+\setlist{itemsep=0.3ex, topsep=0.5ex}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8ex}
+\renewcommand{\arraystretch}{1.35}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\newcommand{\kurs}{Förderkurs Mathematik}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries\color{fkblau} \kurs}\\[1ex]
+  {\large Ideen für den Förderunterricht im ersten Jahr}\\[1ex]
+  {\small Entwurf zur Diskussion · Stand Oktober 2026}
+\end{center}
+
+\begin{tcolorbox}[colframe=fkblau, colback=fkblau!5, boxrule=0.6pt, arc=2pt]
+Dieses Papier fasst meine eigenen Überlegungen zum Förderunterricht
+Mathematik zusammen. Es ist kein beschlossenes Konzept, sondern eine
+Diskussionsgrundlage. Die beigelegten Beispiele zeigen, wie die Ideen konkret
+aussehen könnten. Ich freue mich über Rückmeldungen, welche Teile überzeugen
+und welche nicht.
+\end{tcolorbox}
+
+Viele Schwierigkeiten im Gymnasium liegen tiefer als der aktuelle Stoff: bei
+Brüchen, beim Umgang mit Variablen oder beim Übersetzen von Text in
+Mathematik. Der Kurs soll diese Lücken \textbf{gezielt} schliessen, statt
+für alle dasselbe zu wiederholen.
+
+% ===========================================================================
+\section{Standortbestimmung zu Beginn}
+
+Zu Beginn des Kurses lösen alle Teilnehmenden eine Standortbestimmung. Sie
+zeigt nicht nur, \emph{dass} jemand Unterstützung braucht, sondern auch,
+\emph{wobei}. Daraus ergibt sich für jede Schülerin und jeden Schüler ein
+persönliches Profil, nach dem sie oder er im Kurs übt.
+
+Ob die Standortbestimmung auch über die Teilnahme am Kurs entscheidet oder
+ob dafür der Check S3 verwendet wird, ist noch offen.
+
+% ===========================================================================
+\section{Ein Raster in zwei Dimensionen}
+
+Die Standortbestimmung und alle Übungen sind nach demselben Raster geordnet:
+\textbf{Themen} (Stränge) in der einen Richtung, \textbf{Abstraktionsniveaus}
+in der anderen. Am Beispiel der Brüche:
+
+\begin{tabularx}{\textwidth}{@{}l*{4}{C}@{}}
+  \toprule
+  & \textbf{A Grundlagen} & \textbf{B Numerisch} & \textbf{C Symbolisch} & \textbf{D Formal} \\
+  & \small Bedeutung, Zahl\-verständnis & \small Rechnen mit Zahlen
+  & \small dasselbe mit Variablen & \small Parameter, Strukturen \\
+  \midrule
+  Brüche &
+    $\frac{3}{4}$ auf dem Zahlenstrahl einzeichnen &
+    $\dfrac{2}{3} + \dfrac{1}{4}$ &
+    $\dfrac{a}{3} + \dfrac{b}{4}$ &
+    $\dfrac{1}{x} + \dfrac{1}{x + 1}$ \\
+  \bottomrule
+\end{tabularx}
+
+Die Stränge sind: Zahlen und Stellenwert, Operationen, Brüche,
+Proportionalität und Prozent, Terme, Gleichungen, Funktionen und Graphen,
+Geometrie und Grössen sowie Sprache und Mathematik.
+
+Für jeden Strang zeigt die Standortbestimmung die \textbf{Bruchstelle}: das
+Niveau, ab dem es nicht mehr sicher klappt. Wer $\frac{2}{3} + \frac{1}{4}$
+richtig rechnet, bei $\frac{a}{3} + \frac{b}{4}$ aber scheitert, hat kein
+Problem mit Brüchen, sondern mit dem Schritt zur Algebra. Und wer bei
+Gleichungen mit Brüchen scheitert, hat oft gar kein Problem mit Gleichungen,
+sondern eine Lücke bei den Brüchen.
+
+% ===========================================================================
+\needspace{12\baselineskip}
+\section{Fortschritt sichtbar machen}
+
+Im Verlauf des Jahres folgen weitere Standortbestimmungen in parallelen
+Versionen (gleicher Aufbau, andere Zahlen), zum Beispiel:
+
+\begin{center}
+\begin{tabular}{llll}
+  \textbf{August} & \textbf{Oktober/November} & \textbf{Januar} & \textbf{März} \\
+  Ausgangsprofil & 1.\ Kontrolle & 2.\ Kontrolle & Abschluss
+\end{tabular}
+\end{center}
+
+So sehen die Schülerinnen und Schüler, wie sich ihre Bruchstellen
+verschieben, und die Lehrperson kann die Schwerpunkte laufend anpassen.
+Sichtbarer Fortschritt ist zugleich der wirksamste Weg, Selbstvertrauen
+aufzubauen.
+
+% ===========================================================================
+\section{Drei Pfade im Kurs}
+
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.9cm}c X@{}}
+  \toprule
+  \textbf{Pfad} & \textbf{Anteil} & \textbf{Inhalt} \\
+  \midrule
+  Instruktion & ca.\ 20\,\% &
+    Kurze \textbf{Mini-Lektionen} (ca.\ 10 Minuten) zu einer einzelnen
+    Idee, oft nur für die Teilgruppe, die sie braucht: fehlende Konzepte,
+    typische Fehlvorstellungen, saubere Darstellung. \\
+  Üben & ca.\ 60\,\% &
+    \textbf{Persönliche Übungsblätter} nach dem eigenen Profil, aus einer
+    gemeinsamen Aufgabensammlung, die nach demselben Raster geordnet ist.
+    Mit Lösungen zur Selbstkontrolle und Hinweisen zu typischen Fehlern. \\
+  Werkzeugkasten & ca.\ 20\,\% &
+    \textbf{Überfachliche Werkzeuge}: Texte in Mathematik übersetzen und
+    umgekehrt, wirksam lernen, mit Fehlern und Prüfungsangst umgehen,
+    Vertrauen in die eigenen Fähigkeiten. Kurz eingeführt und danach im
+    Kurs immer wieder eingefordert. \\
+  \bottomrule
+\end{tabularx}
+
+Der Kurs ist unabhängig vom Wochenstoff der einzelnen Klassen. Er behandelt
+die Grundlagen in der Reihenfolge, in der sie im Regelunterricht gebraucht
+werden: zuerst Algebra, dann Funktionen, dann quadratische Gleichungen und
+Geometrie.
+
+% ===========================================================================
+\section*{Beilagen}
+
+\begin{enumerate}
+  \item Standortbestimmung mit Lösungen und Auswertungsraster
+  \item Zwei Mini-Lektionen: «Das Gleichheitszeichen» und
+        «Rechenreihenfolge und Klammern»
+  \item Zwei Einheiten aus dem Werkzeugkasten: «Sprache und Mathematik» und
+        «Vertrauen in die eigene Mathematik»
+  \item Beispiele für Übungsblätter aus der Aufgabensammlung
+\end{enumerate}
+
+Alle Beilagen gibt es in einer Schüler- und einer Lehrpersonenversion.
+
+\end{document}

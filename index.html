@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Übungspaket zusammenstellen – Förderkurs Mathematik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="kopf">
+    <p class="kurs">Förderkurs Mathematik</p>
+    <h1>Übungspaket zusammenstellen</h1>
+    <p class="einleitung">
+      Tragen Sie die Punkte aus dem Auswertungsraster der Standortbestimmung
+      ein. Die Seite schlägt die Felder vor, an denen die Schülerin oder der
+      Schüler üben sollte, und stellt daraus ein PDF zusammen.
+    </p>
+  </header>
+
+  <main>
+    <section class="raster-bereich" aria-labelledby="raster-titel">
+      <div class="raster-kopf">
+        <h2 id="raster-titel">Auswertungsraster</h2>
+        <p class="legende">
+          Klicken oder Taste drücken:
+          <span class="punkt p2">2</span> sicher gelöst
+          <span class="punkt p1">1</span> teilweise
+          <span class="punkt p0">0</span> nicht gelöst
+          <span class="punkt">–</span> nicht bearbeitet
+        </p>
+      </div>
+      <div class="raster-scroll">
+        <table class="raster" id="raster">
+          <thead>
+            <tr>
+              <th scope="col" class="strang-kopf">Strang</th>
+              <th scope="col">A<span>Grundlagen</span></th>
+              <th scope="col">B<span>Rechnen mit Zahlen</span></th>
+              <th scope="col">C<span>Rechnen mit Variablen</span></th>
+              <th scope="col">D<span>Vertiefung</span></th>
+              <th scope="col">Bruchstelle</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <button type="button" class="leise" id="leeren">Raster leeren</button>
+    </section>
+
+    <section class="paket" aria-labelledby="paket-titel">
+      <h2 id="paket-titel">Übungspaket</h2>
+
+      <label class="feld-name">
+        Name der Schülerin oder des Schülers
+        <input type="text" id="name" autocomplete="off" placeholder="optional, erscheint auf dem Deckblatt">
+      </label>
+
+      <div id="vorschlag" aria-live="polite"></div>
+
+      <div class="hinzufuegen">
+        <label for="weiteres">Weiteres Feld hinzufügen</label>
+        <select id="weiteres"></select>
+      </div>
+
+      <fieldset class="optionen">
+        <legend>Optionen</legend>
+        <label><input type="checkbox" id="naechstes" checked>
+          Bei teilweise gelösten Feldern auch das nächste Niveau aufnehmen</label>
+        <label><input type="checkbox" id="checks">
+          Check-Blätter anhängen</label>
+      </fieldset>
+
+      <button type="button" class="haupt" id="erstellen" disabled>PDF erstellen</button>
+      <p class="status" id="status" role="status"></p>
+
+      <details class="befehl">
+        <summary>Individuelles Blatt mit blatt.py erstellen</summary>
+        <p>Wer Python und LaTeX installiert hat, kann mit diesem Befehl ein
+          gemischtes Blatt für genau diese Felder erzeugen:</p>
+        <pre id="befehl"></pre>
+        <button type="button" class="leise" id="kopieren">Befehl kopieren</button>
+      </details>
+    </section>
+  </main>
+
+  <footer class="fuss">
+    <p>Alle Eingaben bleiben in diesem Browser. Namen und Punkte werden
+      nirgends gespeichert oder übertragen.</p>
+    <p id="stand"></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

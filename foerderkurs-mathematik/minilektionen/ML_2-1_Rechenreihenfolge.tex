@@ -1,0 +1,245 @@
+\documentclass[11pt]{exam}
+\usepackage{foerderkurs}
+
+\begin{document}
+
+\minilektion{2.1}{Rechenreihenfolge und Klammern}
+  {Terme in der richtigen Reihenfolge berechnen und erkennen, wann Klammern
+   nötig sind.}
+
+\begin{lehrperson}[Ablauf]
+\textbf{Dauer:} ca.\ 12 Minuten Instruktion, danach Übungen in der Übungszeit,
+Exit-Frage am Ende der Lektion.
+
+\begin{tabular}{@{}ll@{}}
+  3 min & Einstieg: Abstimmung zu beiden Aufgaben, kurze Diskussion \\
+  4 min & Merkkasten mit den vier Stufen und den zwei Präzisierungen \\
+  3 min & Beispiele 1–4 \\
+  2 min & Bruchstrich, andere Schreibweisen, Auftrag für die Übungen
+\end{tabular}
+
+\textbf{Verknüpfung:} Standortbestimmung 2.4, 2.5, 9.3; Übungen mit den Tags
+2B und 2C.
+
+\textbf{Voraussetzung:} Mini-Lektion 0.1 (Gleichungsketten korrekt
+aufschreiben).
+\end{lehrperson}
+
+% ---------------------------------------------------------------------------
+
+\begin{einstieg}
+\begin{enumerate}
+  \item Diese Aufgabe wird im Internet regelmässig heftig diskutiert.
+        Was ist das Ergebnis: $1$ oder $16$?
+        \[ 8 \geteilt 2 \cdot (2 + 2) \]
+  \item Was ergibt $18 - 6 \geteilt 2 + 1$? \quad
+        \wahl{$7$}\quad \wahl{$14$}\quad \wahl{$16$}
+\end{enumerate}
+\end{einstieg}
+
+\begin{lehrperson}[Einstieg]
+Zuerst abstimmen lassen (Hände oder Whiteboards), dann nach Begründungen
+fragen. Die Diskussion zu Aufgabe 1 auf etwa zwei Minuten begrenzen.
+
+\textbf{Aufgabe 1:} Nach den Regeln ergibt sich $16$, weil Punktrechnungen
+gleichrangig sind und von links nach rechts ausgeführt werden:
+$8 \geteilt 2 = 4$, dann $4 \cdot 4 = 16$. Wer $1$ erhält, rechnet zuerst
+$2 \cdot (2 + 2)$. Die eigentliche Botschaft: Der Ausdruck ist
+\emph{schlecht geschrieben}. Wer etwas eindeutig mitteilen will, setzt
+Klammern oder verwendet einen Bruchstrich.
+
+\textbf{Aufgabe 2:} richtig ist $16$. Die $7$ entsteht beim Rechnen strikt von
+links nach rechts, die $14$ bei «plus vor minus» ($18 - 3 - 1$ statt
+$18 - 3 + 1$, also $18 - (3 + 1)$).
+\end{lehrperson}
+
+% ---------------------------------------------------------------------------
+
+\begin{merke}
+Gerechnet wird in dieser Reihenfolge:
+\begin{enumerate}
+  \item \textbf{Klammern}
+  \item \textbf{Potenzen}
+  \item \textbf{Punktrechnungen} ($\cdot$ und $\geteilt$)
+  \item \textbf{Strichrechnungen} ($+$ und $-$)
+\end{enumerate}
+Zwei Präzisierungen, die oft vergessen werden:
+\begin{itemize}
+  \item Innerhalb einer Stufe sind die Operationen \textbf{gleichrangig} und
+        werden \textbf{von links nach rechts} ausgeführt. «Mal vor durch» und
+        «plus vor minus» gibt es nicht.
+  \item Eine Potenz gilt nur für das, was \textbf{direkt davor} steht:
+        $2 \cdot 3^2 = 2 \cdot 9 = 18$ \quad und \quad $-3^2 = -9$,
+        aber \quad $(-3)^2 = 9$.
+\end{itemize}
+\end{merke}
+
+% ---------------------------------------------------------------------------
+\abschnitt{Beispiele}
+
+\begin{beispiel}[1: Punkt vor Strich, dann von links nach rechts]
+\[ 18 - 6 \geteilt 2 + 1 = 18 - 3 + 1 = 15 + 1 = 16 \]
+\falsch\quad $18 - 3 + 1 = 18 - 4 = 14$ \quad («plus vor minus»)
+\end{beispiel}
+
+\begin{beispiel}[2: Mal und durch sind gleichrangig]
+\[ 20 \geteilt 4 \cdot 5 = 5 \cdot 5 = 25 \]
+\falsch\quad $20 \geteilt 4 \cdot 5 = 20 \geteilt 20 = 1$ \quad
+(«mal vor durch»)
+\end{beispiel}
+
+\begin{beispiel}[3: Potenzen]
+\begin{align*}
+  2 \cdot 3^2    &= 2 \cdot 9 = 18 & (2 \cdot 3)^2 &= 6^2 = 36 \\
+  -3^2           &= -9             & (-3)^2        &= (-3) \cdot (-3) = 9
+\end{align*}
+Bei $-3^2$ wird zuerst quadriert, dann kommt das Minus dazu. Soll die negative
+Zahl quadriert werden, braucht es Klammern.
+\end{beispiel}
+
+\begin{beispiel}[4: Der Bruchstrich wirkt wie eine Klammer]
+\[ \frac{9 + 15}{2} = \frac{24}{2} = 12
+   \qquad\text{aber}\qquad
+   9 + \frac{15}{2} = 9 + 7.5 = 16.5 \]
+Schreibt man den Bruch auf einer Zeile, muss man die Klammer selbst setzen:
+$\frac{9 + 15}{2} = (9 + 15) \geteilt 2$.
+\end{beispiel}
+
+\begin{lehrperson}[Beispiele]
+Die beiden «falsch»-Zeilen in Beispiel 1 und 2 sind die häufigsten Fehler in
+der Standortbestimmung (Aufgabe 2.4\,c und e). Sie entstehen oft aus der
+Merkregel «Punkt vor Strich», die als «mal vor durch» und «plus vor minus»
+missverstanden wird.
+
+Bei Beispiel 3 hilft der Hinweis: $-3^2$ liest man «minus drei hoch zwei», also
+«minus (drei hoch zwei)». Dieser Fehler führt später beim Einsetzen negativer
+Zahlen zu falschen Ergebnissen (Mini-Lektion 5.4).
+\end{lehrperson}
+
+% ---------------------------------------------------------------------------
+
+\begin{schreibweisen}
+\begin{itemize}
+  \item In englischsprachigen Videos heissen die Regeln \textbf{PEMDAS} oder
+        \textbf{BODMAS}. Die Merkwörter ordnen die Buchstaben unterschiedlich
+        an, aber die Regeln sind dieselben wie oben.
+  \item Am Computer und in KI-Antworten schreibt man auf einer Zeile:
+        \texttt{*} für mal, \texttt{/} für durch, \texttt{\^} für hoch.
+        Dann ist $\frac{9+15}{2}$ \texttt{(9+15)/2}, aber \texttt{9+15/2}
+        ist $9 + \frac{15}{2}$.
+  \item Taschenrechner und Programme halten sich an dieselben Regeln, aber nur
+        an das, was \emph{tatsächlich eingetippt} wird. \texttt{-3\^{}2} ergibt
+        $-9$.
+  \item Vorsicht: Einige Taschenrechner und Programme geben einer
+        Multiplikation \emph{ohne} Malpunkt, wie in $2(2 + 2)$, Vorrang. Und
+        in Tabellenkalkulationen wie Excel ergibt \texttt{=-3\^{}2} sogar $9$.
+        Darum gilt: \textbf{Im Zweifel Klammern setzen.}
+\end{itemize}
+\end{schreibweisen}
+
+% ---------------------------------------------------------------------------
+\abschnitt{Übungen}
+
+\begin{questions}
+
+\question Berechnen Sie. Schreiben Sie die Zwischenschritte als korrekte
+Gleichungskette auf.
+\begin{multicols}{3}
+\begin{parts}
+  \part $7 + 3 \cdot 4$
+  \part $(7 + 3) \cdot 4$
+  \part $36 \geteilt 6 \geteilt 2$
+  \part $36 \geteilt (6 \geteilt 2)$
+  \part $24 - 8 + 4$
+  \part $24 - (8 + 4)$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $19$ \quad b) $40$ \quad c) $3$ \quad d) $12$ \quad e) $20$ \quad f) $12$
+\end{solution}
+\raum{3.5cm}
+
+\question Berechnen Sie.
+\begin{multicols}{3}
+\begin{parts}
+  \part $3 \cdot 2^2$
+  \part $(3 \cdot 2)^2$
+  \part $-2^2$
+  \part $(-2)^2$
+  \part $-2^3$
+  \part $10 - 2^3$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $12$ \quad b) $36$ \quad c) $-4$ \quad d) $4$ \quad e) $-8$ \quad f) $2$
+\end{solution}
+\raum{3cm}
+
+\question Setzen Sie Klammern so, dass die Gleichung stimmt.
+\begin{multicols}{2}
+\begin{parts}
+  \part $2 + 3 \cdot 4 = 20$
+  \part $12 \geteilt 4 - 1 = 4$
+  \part $5 + 3^2 = 64$
+  \part $18 - 6 \geteilt 2 + 1 = 4$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $(2 + 3) \cdot 4 = 20$ \quad
+  b) $12 \geteilt (4 - 1) = 4$ \quad
+  c) $(5 + 3)^2 = 64$ \quad
+  d) $(18 - 6) \geteilt (2 + 1) = 4$
+\end{solution}
+\raum{3cm}
+
+\question
+\begin{parts}
+  \part Berechnen Sie: \quad $\dfrac{12 + 8}{4}$ \qquad und \qquad
+        $12 + \dfrac{8}{4}$
+  \part Schreiben Sie auf einer Zeile, so wie man es am Computer eintippen
+        würde:
+        \[ \frac{a + b}{2} \qquad\qquad \frac{3}{x + 1} \qquad\qquad
+           \frac{x^2 - 1}{4} \]
+\end{parts}
+\begin{solution}
+  a) $5$ und $14$ \quad
+  b) \texttt{(a+b)/2}, \ \texttt{3/(x+1)}, \ \texttt{(x\^{}2-1)/4}
+\end{solution}
+\raum{3cm}
+
+\question Lea rechnet:
+\[ 5 + 2 \cdot 3^2 = 5 + 6^2 = 5 + 36 = 41 \]
+Was hat sie falsch gemacht? Rechnen Sie richtig.
+\begin{solution}
+  Lea hat zuerst $2 \cdot 3$ gerechnet und dann quadriert. Die Potenz gilt nur
+  für die $3$: \ $5 + 2 \cdot 3^2 = 5 + 2 \cdot 9 = 5 + 18 = 23$.
+\end{solution}
+\raum{2.5cm}
+
+\end{questions}
+
+\begin{lehrperson}[Übungen]
+Übung 3 ist für viele die interessanteste, weil sie umgekehrt denken müssen:
+Wo braucht es Klammern, damit das gewünschte Ergebnis entsteht? Teil d) ist
+schwieriger, weil zwei Klammerpaare nötig sind. Übung 4\,b) bereitet das
+Einsetzen in Formeln vor und ist für Schülerinnen und Schüler wichtig, die
+viel mit KI-Programmen oder Tabellenkalkulationen arbeiten.
+\end{lehrperson}
+
+% ---------------------------------------------------------------------------
+
+\begin{ausblick}
+Die Rechenreihenfolge brauchen Sie bei jedem Term, beim Einsetzen von Zahlen
+in Formeln (z.\,B.\ in der Physik) und bei jeder Eingabe in den Taschenrechner.
+Viele Fehler in späteren Prüfungen entstehen nicht beim schwierigen Teil einer
+Aufgabe, sondern bei einem Vorzeichen oder einer vergessenen Klammer.
+\end{ausblick}
+
+\begin{exitfrage}
+Berechnen Sie: \quad $2 + 3 \cdot (4 - 1)^2$
+\ifprintanswers\par\medskip\textbf{Lösung:}
+$2 + 3 \cdot (4 - 1)^2 = 2 + 3 \cdot 3^2 = 2 + 3 \cdot 9 = 2 + 27 = 29$
+\else\par\vspace{2cm}\fi
+\end{exitfrage}
+
+\end{document}

@@ -1,0 +1,58 @@
+# Baut bei jeder Änderung auf dem Branch main die Übungsblätter und
+# veröffentlicht die Website auf GitHub Pages.
+# Einmalig einrichten: Settings → Pages → Source: «GitHub Actions».
+name: Website bauen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: LaTeX installieren
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-latex-recommended texlive-latex-extra \
+            texlive-lang-german texlive-fonts-recommended texlive-pictures lmodern
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python-Pakete installieren
+        run: pip install pyyaml
+
+      - name: Datenbank prüfen
+        run: python3 uebungen/blatt.py pruefen
+
+      - name: Übungsblätter erzeugen
+        run: python3 uebungen/build_site.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

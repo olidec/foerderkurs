@@ -1,0 +1,1421 @@
+\documentclass[11pt]{exam}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Standortbestimmung Mathematik – Eintritt Gymnasium (BfKA-Grundlagen)
+%
+% Version ohne Lösungen:   pdflatex Standortbestimmung_Mathematik.tex
+% Version mit Lösungen:    pdflatex -jobname=Standortbestimmung_Mathematik_Loesungen \
+%                              "\def\mitloesungen{1}\input{Standortbestimmung_Mathematik}"
+% Jeweils zweimal kompilieren (Seitenzahlen).
+%
+% Aufbau: 9 Stränge × 4 Niveaus
+%   A Grundlagen  (Aufgaben x.1, x.2)
+%   B Numerisch   (Aufgaben x.3, x.4)
+%   C Symbolisch  (Aufgabe  x.5)
+%   D Formal      (Aufgabe  x.6)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifdefined\mitloesungen \printanswers \fi
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[nswissgerman]{babel}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amssymb, amsmath, setspace, multicol, array, needspace}
+\usepackage{tikz}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage{color}
+\colorgrids
+\definecolor{GridColor}{gray}{0.7}
+\setlength{\gridsize}{4mm}
+
+\singlespacing
+\parindent 0ex
+
+% ---------------------------------------------------------------------------
+% Kopfzeilen und Angaben
+% ---------------------------------------------------------------------------
+\newcommand{\titel}{Standortbestimmung Mathematik}
+\newcommand{\schuljahr}{Schuljahr 2026/27}
+\newcommand{\zeit}{90 Minuten (Teile A und B)}
+\newcommand{\hilfsmittel}{keine (kein Taschenrechner)}
+
+% ---------------------------------------------------------------------------
+% Hilfsbefehle
+% ---------------------------------------------------------------------------
+% Aufgabe mit fester Nummer (Strang.Nummer) statt fortlaufender Zählung
+\newcommand{\aufgabe}[1]{%
+  \needspace{8\baselineskip}%
+  \renewcommand{\questionlabel}{\textbf{#1}}%
+  \question}
+
+% Teil-Überschrift über die volle Breite
+\newcommand{\teil}[2]{\uplevel{\vspace{1ex}\textbf{\large Teil #1: #2}\par\vspace{1ex}}}
+
+% Divisionszeichen (Doppelpunkt) mit korrektem Abstand
+\newcommand{\geteilt}{\mathbin{:}}
+% Punkt mit Koordinaten (x | y)
+\newcommand{\pkt}[2]{(#1\,|\,#2)}
+% Leeres Kästchen für Lückenaufgaben
+\newcommand{\kaestchen}{\fbox{\rule{0pt}{1.1em}\hspace{1.6em}}}
+% Platz für die Antwort (Raster), nur in der Version ohne Lösungen
+\newcommand{\raum}[1]{\ifprintanswers\else\fillwithgrid{#1}\fi}
+% Ankreuzfelder: \wahl = falsche, \wahlr = richtige Option
+\newcommand{\wahl}[1]{\mbox{$\Box$\,#1}}
+\newcommand{\wahlr}[1]{\mbox{\ifprintanswers$\blacksquare$\,\textbf{#1}\else$\Box$\,#1\fi}}
+% Mehr Zeilenabstand in Aufgabenteilen mit Brüchen
+\newcommand{\bruchabstand}{\setlength{\itemsep}{2.5ex}}
+% Interpretationshinweis in den Lösungen
+\newcommand{\diagnose}[1]{\par\smallskip\textit{Interpretation:} #1}
+
+% ---------------------------------------------------------------------------
+% Deutsche Bezeichnungen für die exam-Klasse
+% ---------------------------------------------------------------------------
+\renewcommand{\solutiontitle}{\noindent\textbf{Lösung:}\enspace}
+\checkboxchar{$\Box$}
+\checkedchar{$\blacksquare$}
+\CorrectChoiceEmphasis{\bfseries}
+\pointsinmargin
+\nopointsinmargin
+
+\begin{document}
+
+\pagestyle{headandfoot}
+\firstpageheader{}{}{}
+\runningheader{\titel\ifprintanswers\ – Lösungen\fi}{}{\schuljahr}
+\runningheadrule
+\footer{}{Seite \thepage\ von \numpages}{}
+
+% ===========================================================================
+% Titelseite
+% ===========================================================================
+\begin{center}
+  {\LARGE\bfseries \titel\ifprintanswers\ – Lösungen\fi}\\[1ex]
+  {\large Eintritt ins Gymnasium – \schuljahr}
+\end{center}
+\vspace{1em}
+
+\begin{tabular}{@{}p{0.5\textwidth}l@{}}
+  \textbf{Name:} \makebox[5.5cm]{\hrulefill} & \textbf{Klasse:} \makebox[3cm]{\hrulefill} \\[2ex]
+  \textbf{Zeit:} \zeit                       & \textbf{Hilfsmittel:} \hilfsmittel
+\end{tabular}
+
+\vspace{1.5em}
+\rule{\textwidth}{.4pt}
+
+\subsection*{Hinweise}
+
+\begin{itemize}
+  \item Diese Standortbestimmung ist \textbf{keine Prüfung} und wird nicht benotet. Sie zeigt
+        uns, wo Sie in Mathematik stehen, damit wir Sie gezielt unterstützen können.
+  \item Die Aufgaben werden von Teil zu Teil schwieriger. Es ist normal, dass
+        Sie nicht alle Aufgaben lösen können. Versuchen Sie trotzdem jede Aufgabe.
+  \item Lösen Sie die Aufgaben \textbf{ohne Taschenrechner}.
+  \item Schreiben Sie Ihre Überlegungen und Zwischenschritte auf. Ein Lösungsweg
+        sagt uns oft mehr als das Ergebnis.
+  \item Wenn Sie eine Aufgabe nicht lösen können, gehen Sie zur nächsten weiter.
+\end{itemize}
+
+\vfill
+\newpage
+
+% ===========================================================================
+\begin{questions}
+% ===========================================================================
+
+\teil{A}{Grundlagen}
+
+% ---------------------------------------------------------------------------
+% 1 Zahlen und Stellenwert
+% ---------------------------------------------------------------------------
+\aufgabe{1.1}
+Ordnen Sie die Zahlen der Grösse nach, beginnend mit der kleinsten:
+\[
+  0.5; \quad 0.45; \quad 0.405; \quad 0.54
+\]
+\begin{solution}
+  $0.405 < 0.45 < 0.5 < 0.54$
+  \diagnose{Wird $0.405$ oder $0.45$ grösser als $0.5$ eingeordnet, so gilt
+  vermutlich die Vorstellung «mehr Ziffern bedeutet eine grössere Zahl».
+  Der Stellenwert der Dezimalstellen ist nicht gesichert.}
+\end{solution}
+\raum{2.5cm}
+
+\aufgabe{1.2}
+\begin{parts}
+  \part Berechnen Sie: \quad $3.7 \cdot 100$ \qquad $45 \geteilt 1000$
+  \part Welche Zahl liegt genau in der Mitte zwischen $0.3$ und $0.4$?
+\end{parts}
+\begin{solution}
+  a) $370$; \ $0.045$ \qquad b) $0.35$
+  \diagnose{Ergebnisse wie $3.700$ oder $0.45$ deuten auf die auswendig gelernte
+  Regel «Nullen anhängen bzw.\ wegstreichen» hin, ohne Verständnis des
+  Stellenwerts. Bei b) zeigt die Antwort «gibt es nicht», dass die Dichte der
+  Dezimalzahlen nicht verstanden ist.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 2 Operationen und Rechenreihenfolge
+% ---------------------------------------------------------------------------
+\aufgabe{2.1}
+Ein Band von $3.6$\,m Länge wird in Stücke von $0.4$\,m Länge geschnitten.
+Welche Rechnung passt zu der Frage, wie viele Stücke entstehen? Kreuzen Sie an.
+
+\begin{oneparcheckboxes}
+  \choice $3.6 \cdot 0.4$
+  \CorrectChoice $3.6 \geteilt 0.4$
+  \choice $0.4 \geteilt 3.6$
+  \choice $3.6 - 0.4$
+\end{oneparcheckboxes}
+\begin{solution}
+  $3.6 \geteilt 0.4 = 9$ Stücke.
+  \diagnose{Wer die Division meidet, hat oft die Vorstellung, man dürfe nur durch
+  ganze Zahlen teilen. Die Wahl von $0.4 \geteilt 3.6$ zeigt die Regel «immer die
+  grössere durch die kleinere Zahl» in umgekehrter Form bzw.\ fehlendes Verständnis
+  der Division als Aufteilen.}
+\end{solution}
+
+\aufgabe{2.2}
+Entscheiden Sie \textbf{ohne zu rechnen}, ob das Ergebnis grösser oder kleiner
+als $50$ ist.
+\begin{parts}
+  \part $50 \cdot 0.8$ \hfill \wahl{grösser als 50}\quad \wahlr{kleiner als 50}
+  \part $50 \geteilt 0.8$ \hfill \wahlr{grösser als 50}\quad \wahl{kleiner als 50}
+  \part $50 \geteilt 1.25$ \hfill \wahl{grösser als 50}\quad \wahlr{kleiner als 50}
+\end{parts}
+\begin{solution}
+  a) kleiner ($40$) \quad b) grösser ($62.5$) \quad c) kleiner ($40$)
+  \diagnose{Fehler bei a) und b) zeigen die Fehlvorstellung «Multiplizieren
+  vergrössert, Dividieren verkleinert», die aus dem Rechnen mit natürlichen
+  Zahlen stammt.}
+\end{solution}
+
+% ---------------------------------------------------------------------------
+% 3 Brüche
+% ---------------------------------------------------------------------------
+\aufgabe{3.1}
+Markieren Sie die Zahlen $\dfrac{3}{4}$ und $\dfrac{5}{4}$ auf dem Zahlenstrahl.
+
+\begin{center}
+\begin{tikzpicture}[x=6cm]
+  \draw[->, thick] (-0.05,0) -- (2.15,0);
+  \foreach \x in {0,1,2} {
+    \draw[thick] (\x,0.15) -- (\x,-0.15) node[below] {$\x$};
+  }
+  \ifprintanswers
+    \foreach \x/\l in {0.75/{\frac{3}{4}}, 1.25/{\frac{5}{4}}} {
+      \draw[very thick] (\x,0.25) -- (\x,-0.25);
+      \node[above] at (\x,0.25) {$\l$};
+    }
+  \fi
+\end{tikzpicture}
+\end{center}
+\begin{solution}
+  Markierungen bei $0.75$ und $1.25$ (siehe Zahlenstrahl).
+  \diagnose{Wer $\frac{5}{4}$ nicht einträgt oder für unmöglich hält, versteht
+  Brüche nur als «Teil eines Ganzen», nicht als Zahlen. Falsche Positionen von
+  $\frac{3}{4}$ zeigen Schwierigkeiten beim Einteilen der Einheit.}
+\end{solution}
+
+\aufgabe{3.2}
+\begin{parts}
+  \part Welcher Bruch ist jeweils grösser? Begründen Sie kurz.
+  \[
+    \frac{2}{3} \text{ oder } \frac{3}{4} \qquad\qquad
+    \frac{5}{8} \text{ oder } \frac{5}{6} \qquad\qquad
+    \frac{7}{8} \text{ oder } \frac{8}{9}
+  \]
+  \part Ergänzen Sie: \quad $\dfrac{2}{3} = \dfrac{\kaestchen}{12}$
+\end{parts}
+\begin{solution}
+  a) $\frac{3}{4}$; \ $\frac{5}{6}$; \ $\frac{8}{9}$ (z.\,B.\ weil $\frac{8}{9}$
+  nur $\frac{1}{9}$ von $1$ entfernt ist, $\frac{7}{8}$ aber $\frac{1}{8}$)
+  \qquad b) $8$
+  \diagnose{Wird $\frac{5}{8}$ als grösser gewählt («8 ist grösser als 6»), so
+  werden Zähler und Nenner getrennt als natürliche Zahlen betrachtet. Das letzte
+  Paar unterscheidet auswendig gelernte Verfahren (gleichnamig machen) von
+  Zahlverständnis (Abstand zu~1).}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 4 Proportionalität und Prozent
+% ---------------------------------------------------------------------------
+\aufgabe{4.1}
+3 Hefte kosten CHF 7.50. Wie viel kosten 12 Hefte? Wie viel kosten 5 Hefte?
+\begin{solution}
+  12 Hefte: CHF 30.00 \qquad 5 Hefte: CHF 12.50 (1 Heft kostet CHF 2.50)
+  \diagnose{Gelingen die 12 Hefte, die 5 Hefte aber nicht, so wird nur
+  vervielfacht, der Weg über den Einheitspreis (Dreisatz) fehlt.}
+\end{solution}
+\raum{3cm}
+
+\aufgabe{4.2}
+Für 4 Personen braucht ein Rezept 6 Eier. Wie viele Eier braucht man für
+6 Personen?
+\begin{solution}
+  $9$ Eier
+  \diagnose{Die Antwort $8$ («2 Personen mehr, also 2 Eier mehr») ist das
+  klassische Zeichen für additives statt multiplikatives Denken.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 5 Terme
+% ---------------------------------------------------------------------------
+\aufgabe{5.1}
+Aus Hölzchen werden Quadrate in einer Reihe gelegt.
+
+\begin{center}
+\begin{tikzpicture}[x=0.8cm, y=0.8cm, line width=1.6pt, line cap=round]
+  \newcommand{\reihe}[2]{% #1 = x-Start, #2 = Anzahl Quadrate
+    \foreach \i in {1,...,#2} {
+      \draw (#1+\i-1,0) -- (#1+\i,0);
+      \draw (#1+\i-1,1) -- (#1+\i,1);
+      \draw (#1+\i,0) -- (#1+\i,1);
+    }
+    \draw (#1,0) -- (#1,1);
+  }
+  \reihe{0}{1}  \node at (0.5,-0.6) {\small 4 Hölzchen};
+  \reihe{3}{2}  \node at (4,-0.6)   {\small 7 Hölzchen};
+  \reihe{7}{3}  \node at (8.5,-0.6) {\small 10 Hölzchen};
+\end{tikzpicture}
+\end{center}
+\begin{parts}
+  \part Wie viele Hölzchen braucht man für 10 Quadrate?
+  \part Wie viele Hölzchen braucht man für $n$ Quadrate?
+\end{parts}
+\begin{solution}
+  a) $31$ \qquad b) $3n + 1$ (oder gleichwertig, z.\,B.\ $4 + 3 \cdot (n-1)$)
+  \diagnose{Gelingt a), aber nicht b), so kann ein Muster an Beispielen
+  fortgesetzt, aber nicht verallgemeinert werden. Antworten wie $4n$ zeigen, dass
+  die gemeinsamen Hölzchen nicht beachtet werden.}
+\end{solution}
+\raum{3.5cm}
+
+\aufgabe{5.2}
+Welcher Ausdruck ist grösser: $n + 2$ oder $2n$? Begründen Sie.
+\begin{solution}
+  Das hängt von $n$ ab: Für $n = 2$ sind beide gleich, für $n < 2$ ist $n + 2$
+  grösser, für $n > 2$ ist $2n$ grösser.
+  \diagnose{Die Antwort «$2n$, weil verdoppeln mehr ist» oder die Prüfung mit
+  nur einem Wert zeigen, dass die Variable als feste Zahl und nicht als
+  Platzhalter für viele Zahlen verstanden wird.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 6 Gleichungen
+% ---------------------------------------------------------------------------
+\aufgabe{6.1}
+Welche Zahl gehört ins Kästchen?
+\begin{parts}
+  \part $8 + 4 = \kaestchen + 5$
+  \part $3 \cdot \kaestchen = 24 \geteilt 2$
+\end{parts}
+\begin{solution}
+  a) $7$ \qquad b) $4$
+  \diagnose{Die Antworten $12$ oder $17$ bei a) zeigen, dass das
+  Gleichheitszeichen als Aufforderung «jetzt kommt das Ergebnis» gelesen wird
+  und nicht als Beziehung zwischen zwei gleichwertigen Seiten.}
+\end{solution}
+
+\aufgabe{6.2}
+Ist die Aussage wahr oder falsch? Begründen Sie, möglichst ohne die Ergebnisse
+auszurechnen.
+\begin{parts}
+  \part $37 + 25 = 36 + 26$ \hfill \wahlr{wahr}\quad \wahl{falsch}
+  \part $47 - 18 = 48 - 17$ \hfill \wahl{wahr}\quad \wahlr{falsch}
+  \part $6 \cdot 15 = 3 \cdot 30$ \hfill \wahlr{wahr}\quad \wahl{falsch}
+\end{parts}
+\begin{solution}
+  a) wahr \quad b) falsch ($29 \neq 31$) \quad c) wahr
+  \diagnose{Begründungen wie «links eins weniger, rechts eins mehr» zeigen
+  relationales Denken. Wer b) als wahr einstuft, überträgt die
+  Ausgleichsregel der Addition unreflektiert auf die Subtraktion.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 7 Funktionen und Graphen
+% ---------------------------------------------------------------------------
+\aufgabe{7.1}
+Geben Sie die Koordinaten der Punkte $A$, $B$ und $C$ an.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.55]
+  \draw[gray!40, thin] (-5,-5) grid (5,5);
+  \draw[->, thick] (-5.4,0) -- (5.6,0) node[right] {$x$};
+  \draw[->, thick] (0,-5.4) -- (0,5.6) node[above] {$y$};
+  \foreach \t in {-4,-2,2,4} {
+    \node[below, font=\scriptsize] at (\t,0) {$\t$};
+    \node[left,  font=\scriptsize] at (0,\t) {$\t$};
+  }
+  \foreach \p/\x/\y/\pos in {A/3/-2/right, B/-2/3/left, C/0/4/right} {
+    \fill (\x,\y) circle (3.5pt);
+    \node[\pos, font=\small] at (\x,\y) {$\p$};
+  }
+\end{tikzpicture}
+\end{center}
+$A = $ \fillin[$\pkt{3}{-2}$][2.5cm] \qquad
+$B = $ \fillin[$\pkt{-2}{3}$][2.5cm] \qquad
+$C = $ \fillin[$\pkt{0}{4}$][2.5cm]
+\begin{solution}
+  $A\pkt{3}{-2}$, \ $B\pkt{-2}{3}$, \ $C\pkt{0}{4}$
+  \diagnose{Vertauschte Koordinaten bei $A$ und $B$ zeigen, dass die
+  Reihenfolge $(x\,|\,y)$ nicht gesichert ist. Fehler bei $C$ (z.\,B.\ $(4\,|\,0)$)
+  deuten auf Unsicherheit bei Punkten auf den Achsen hin.}
+\end{solution}
+
+\aufgabe{7.2}
+Die $y$-Werte in der Tabelle werden alle nach derselben Regel aus den
+$x$-Werten berechnet. Ergänzen Sie die Tabelle sinngemäss.
+\begin{center}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabular}{|c|*{4}{>{\centering\arraybackslash}p{1.2cm}|}}
+    \hline
+    $x$ & $0$ & $1$ & $3$  & $6$ \\ \hline
+    $y$ & $2$ & $5$ & $11$ & \ifprintanswers $\mathbf{20}$\fi \\ \hline
+  \end{tabular}
+\end{center}
+\begin{solution}
+  $y = 20$ (Zuordnung $y = 3x + 2$)
+  \diagnose{Da die $x$-Werte nicht in gleichen Schritten wachsen, scheitert ein
+  rein schrittweises Weiterzählen (z.\,B.\ «immer $+6$» ergibt $17$). Das zeigt,
+  ob der Zusammenhang zwischen $x$ und $y$ erkannt wird.}
+\end{solution}
+\raum{2.5cm}
+
+% ---------------------------------------------------------------------------
+% 8 Geometrie und Grössen
+% ---------------------------------------------------------------------------
+\aufgabe{8.1}
+Ergänzen Sie.
+\begin{parts}
+  \part $3.5\text{ m} = $ \fillin[$350$][2cm] cm
+  \part $250\text{ g} = $ \fillin[$0.25$][2cm] kg
+  \part $1\text{ m}^2 = $ \fillin[$10\,000$][2cm] cm$^2$
+  \part $2\text{ h }15\text{ min} = $ \fillin[$2.25$][2cm] h
+\end{parts}
+\begin{solution}
+  a) $350$ \quad b) $0.25$ \quad c) $10\,000$ \quad d) $2.25$
+  \diagnose{Die Antwort $100$ bei c) zeigt, dass die Umrechnungszahl für
+  Flächeneinheiten nicht verstanden ist. Die Antwort $2.15$ bei d) zeigt, dass
+  Zeitangaben wie Dezimalzahlen behandelt werden.}
+\end{solution}
+
+\aufgabe{8.2}
+Ein Rechteck ist $6$\,cm lang und $4$\,cm breit.
+\begin{parts}
+  \part Berechnen Sie den Umfang und den Flächeninhalt.
+  \part Hat jedes Rechteck mit demselben Umfang auch denselben Flächeninhalt?
+        Begründen Sie.
+\end{parts}
+\begin{solution}
+  a) Umfang $20$\,cm, Flächeninhalt $24$\,cm$^2$
+  \qquad b) Nein, z.\,B.\ hat ein Rechteck mit $7$\,cm und $3$\,cm ebenfalls den
+  Umfang $20$\,cm, aber den Flächeninhalt $21$\,cm$^2$.
+  \diagnose{Verwechslungen von Umfang und Fläche (auch bei den Einheiten) sowie
+  die Antwort «ja» bei b) zeigen, dass die beiden Grössen nicht klar
+  unterschieden werden.}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 9 Sprache ↔ Mathematik
+% ---------------------------------------------------------------------------
+\aufgabe{9.1}
+Schreiben Sie die Rechnung auf und berechnen Sie das Ergebnis.
+\begin{parts}
+  \part die Summe von $12$ und $8$
+  \part die Differenz von $20$ und $5$
+  \part das Produkt von $6$ und $7$
+  \part der Quotient von $36$ und $4$
+\end{parts}
+\begin{solution}
+  a) $12 + 8 = 20$ \quad b) $20 - 5 = 15$ \quad c) $6 \cdot 7 = 42$ \quad
+  d) $36 \geteilt 4 = 9$
+  \diagnose{Unbekannte Fachbegriffe zeigen sich hier direkt. Bei b) und d)
+  auf die Reihenfolge in der aufgeschriebenen Rechnung achten ($5 - 20$,
+  $4 \geteilt 36$).}
+\end{solution}
+\raum{3cm}
+
+\aufgabe{9.2}
+\begin{parts}
+  \part Mia hat dreimal so viele Karten wie Leo. Leo hat 12 Karten. Wie viele
+        Karten hat Mia?
+  \part Nora hat 12 Karten. Das sind dreimal so viele wie Tim. Wie viele Karten
+        hat Tim?
+\end{parts}
+\begin{solution}
+  a) $36$ \qquad b) $4$
+  \diagnose{Die Antwort $36$ bei b) zeigt eine Schlüsselwort-Strategie
+  («mal» bedeutet multiplizieren), ohne die Beziehung zwischen den Grössen zu
+  erfassen.}
+\end{solution}
+\raum{3cm}
+
+% ===========================================================================
+\newpage
+\teil{B}{Rechnen mit Zahlen}
+% ===========================================================================
+
+% ---------------------------------------------------------------------------
+% 1 Zahlen und Stellenwert
+% ---------------------------------------------------------------------------
+\aufgabe{1.3}
+\begin{parts}
+  \part Runden Sie.
+  \begin{subparts}
+    \subpart $3.4567$ auf zwei Dezimalstellen
+    \subpart $0.0496$ auf zwei Dezimalstellen
+    \subpart $28\,349$ auf Tausender
+  \end{subparts}
+  \part Welches Ergebnis ist plausibel? Kreuzen Sie an, ohne genau zu rechnen.
+        \[
+          0.48 \cdot 205 \approx \quad
+          \text{\wahl{$10$}} \quad \text{\wahlr{$100$}} \quad
+          \text{\wahl{$1000$}} \quad \text{\wahl{$10\,000$}}
+        \]
+\end{parts}
+\begin{solution}
+  a) $3.46$; \ $0.05$; \ $28\,000$ \qquad b) $100$ (genau: $98.4$)
+  \diagnose{$3.45$ zeigt Abschneiden statt Runden. Antworten wie $0.5$ oder
+  $0.04$ bei $0.0496$ zeigen, dass der Stellenwert beim Runden verloren geht.
+  Fehler bei b) deuten auf fehlende Überschlagsrechnung hin.}
+\end{solution}
+\raum{3cm}
+
+\aufgabe{1.4}
+\begin{parts}
+  \part Ordnen Sie der Grösse nach, beginnend mit der kleinsten Zahl:
+        \quad $-3.5; \quad -3; \quad 0.5; \quad -4; \quad -0.5$
+  \part Welche Zahl ist um $5$ grösser als $-3$?
+\end{parts}
+\begin{solution}
+  a) $-4 < -3.5 < -3 < -0.5 < 0.5$ \qquad b) $2$
+  \diagnose{Wird $-3.5$ grösser als $-3$ eingeordnet, so werden negative Zahlen
+  nach ihrem Betrag geordnet. Antworten wie $-8$ oder $8$ bei b) zeigen
+  Unsicherheit beim Bewegen auf dem Zahlenstrahl.}
+\end{solution}
+\raum{2.5cm}
+
+% ---------------------------------------------------------------------------
+% 2 Operationen und Rechenreihenfolge
+% ---------------------------------------------------------------------------
+\aufgabe{2.3}
+Berechnen Sie.
+\begin{multicols}{3}
+\begin{parts}
+  \part $-7 + 12$
+  \part $-4 - 9$
+  \part $(-6) \cdot (-3)$
+  \part $(-15) \geteilt 3$
+  \part $5 - (-8)$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $5$ \quad b) $-13$ \quad c) $18$ \quad d) $-5$ \quad e) $13$
+  \diagnose{Typische Fehler sind $-5$ oder $13$ bei b) sowie $-3$ bei e). Sie
+  zeigen, dass Vorzeichen und Rechenzeichen nicht sicher unterschieden werden.}
+\end{solution}
+\raum{2.5cm}
+
+\aufgabe{2.4}
+Berechnen Sie.
+\begin{multicols}{3}
+\begin{parts}
+  \part $12 - 3 \cdot 4$
+  \part $(12 - 3) \cdot 4$
+  \part $20 \geteilt 4 \cdot 5$
+  \part $2 \cdot 3^2$
+  \part $18 - 6 \geteilt 2 + 1$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $0$ \quad b) $36$ \quad c) $25$ \quad d) $18$ \quad e) $16$
+  \diagnose{Typische Fehler: c) $1$ (Multiplikation vor Division), d) $36$
+  (zuerst multipliziert, dann quadriert), e) $7$ (von links nach rechts
+  gerechnet) oder $14$ (Addition vor Subtraktion). Sie zeigen, welche Regel der
+  Rechenreihenfolge fehlt.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 3 Brüche
+% ---------------------------------------------------------------------------
+\aufgabe{3.3}
+Berechnen Sie und kürzen Sie das Ergebnis so weit wie möglich.
+\begin{multicols}{3}
+\begin{parts}\bruchabstand
+  \part $\dfrac{2}{3} + \dfrac{1}{4}$
+  \part $\dfrac{5}{6} - \dfrac{1}{2}$
+  \part $\dfrac{3}{4} \cdot \dfrac{2}{9}$
+  \part $\dfrac{2}{5} \geteilt \dfrac{4}{15}$
+  \part $3 \cdot \dfrac{2}{5}$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $\frac{11}{12}$ \quad b) $\frac{1}{3}$ \quad c) $\frac{1}{6}$ \quad
+  d) $\frac{3}{2}$ \quad e) $\frac{6}{5}$
+  \diagnose{$\frac{3}{7}$ bei a) zeigt, dass Zähler und Nenner getrennt addiert
+  werden. $\frac{6}{15}$ bei e) zeigt, dass Zähler und Nenner mit $3$
+  multipliziert werden (Verwechslung mit dem Erweitern). Fehler nur bei d)
+  deuten auf eine nicht verstandene Divisionsregel hin.}
+\end{solution}
+\raum{4cm}
+
+\aufgabe{3.4}
+Ergänzen Sie die Tabelle.
+\begin{center}
+  \newcommand{\lsg}[1]{\ifprintanswers$\mathbf{#1}$\fi}
+  \newcommand{\zh}{\rule[-2.4ex]{0pt}{6.6ex}}% Zeilenhöhe für Brüche
+  \begin{tabular}{|c|c|c|}
+    \hline
+    \zh\makebox[2.6cm]{\textbf{Bruch}} & \makebox[2.6cm]{\textbf{Dezimalzahl}}
+      & \makebox[2.6cm]{\textbf{Prozent}} \\ \hline
+    \zh$\dfrac{3}{4}$          & \lsg{0.75}           & \lsg{75\,\%} \\ \hline
+    \zh\lsg{\dfrac{1}{20}}     & $0.05$               & \lsg{5\,\%} \\ \hline
+    \zh\lsg{\dfrac{5}{4}}      & \lsg{1.25}           & $125\,\%$ \\ \hline
+    \zh$\dfrac{1}{3}$          & \lsg{0.333\ldots}    & \lsg{33.3\,\%} \\ \hline
+  \end{tabular}
+\end{center}
+\begin{solution}
+  Siehe Tabelle. Für $\frac{1}{3}$ sind auch $0.\overline{3}$ und
+  $33\frac{1}{3}\,\%$ korrekt.
+  \diagnose{$0.05 = 50\,\%$ zeigt Unsicherheit beim Stellenwert. Wer bei
+  $125\,\%$ keinen Bruch findet, hält Prozentangaben über $100\,\%$ oder Brüche
+  grösser als $1$ für unmöglich.}
+\end{solution}
+\raum{2.5cm}
+
+% ---------------------------------------------------------------------------
+% 4 Proportionalität und Prozent
+% ---------------------------------------------------------------------------
+\aufgabe{4.3}
+Ein Pullover kostet CHF 80.
+\begin{parts}
+  \part Berechnen Sie $15\,\%$ von CHF 80.
+  \part Der Preis des Pullovers wird um $25\,\%$ reduziert. Wie viel kostet er
+        jetzt?
+\end{parts}
+\begin{solution}
+  a) CHF 12 \qquad b) CHF 60
+  \diagnose{Wer bei b) nur den Rabatt (CHF 20) angibt, unterscheidet nicht
+  zwischen Prozentwert und neuem Wert. Fehler bei a) zeigen, dass die
+  Grundidee von «Prozent als Hundertstel» fehlt.}
+\end{solution}
+\raum{3cm}
+
+\aufgabe{4.4}
+Ein Preis steigt von CHF 40 auf CHF 50.
+\begin{parts}
+  \part Um wie viel Prozent ist der Preis gestiegen?
+  \part Danach sinkt der Preis wieder von CHF 50 auf CHF 40. Um wie viel Prozent
+        ist er gesunken?
+\end{parts}
+\begin{solution}
+  a) $25\,\%$ \qquad b) $20\,\%$
+  \diagnose{Die Antwort $25\,\%$ bei b) (oder $20\,\%$ bei a)) zeigt, dass
+  nicht erkannt wird, dass sich der Prozentsatz auf den jeweiligen Grundwert
+  bezieht. Dieser Fehler ist sehr häufig.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 5 Terme
+% ---------------------------------------------------------------------------
+\aufgabe{5.3}
+Vereinfachen Sie so weit wie möglich.
+\begin{multicols}{3}
+\begin{parts}
+  \part $3a + 5 + 2a - 1$
+  \part $4x + 3y - x + 2y$
+  \part $2a + 3b$
+  \part $3x \cdot 4x$
+  \part $a^2 + a + a^2$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $5a + 4$ \quad b) $3x + 5y$ \quad c) nicht vereinfachbar \quad
+  d) $12x^2$ \quad e) $2a^2 + a$
+  \diagnose{$5ab$ bei c) sowie $a^4$, $3a^2$ oder $2a^3$ bei e) zeigen, dass
+  ungleichartige Terme zusammengefasst werden. Die Aussage «$2a + 3b$ ist keine
+  Lösung» weist auf die Vorstellung hin, dass ein Term ein einzelnes Ergebnis
+  haben muss.}
+\end{solution}
+\raum{3cm}
+
+\aufgabe{5.4}
+Ist die Aussage richtig oder falsch? Kreuzen Sie an.
+\begin{parts}
+  \part $2a + 3b = 5ab$     \hfill \wahl{richtig}\quad \wahlr{falsch}
+  \part $x + x = x^2$       \hfill \wahl{richtig}\quad \wahlr{falsch}
+  \part $3x \cdot 2 = 6x$   \hfill \wahlr{richtig}\quad \wahl{falsch}
+  \part $a + a^2 = a^3$     \hfill \wahl{richtig}\quad \wahlr{falsch}
+  \part $4y - y = 4$        \hfill \wahl{richtig}\quad \wahlr{falsch}
+\end{parts}
+\begin{solution}
+  a) falsch \quad b) falsch \quad c) richtig \quad d) falsch \quad e) falsch
+  \diagnose{Wiedererkennungsversion von 5.3. Wer hier richtig entscheidet, bei
+  5.3 aber Fehler macht, kennt die Regeln, wendet sie aber nicht sicher an.
+  Bei e) zeigt «richtig», dass $y$ als Einheit oder Abkürzung gelesen wird
+  («4 Äpfel minus 1 Apfel»).}
+\end{solution}
+
+% ---------------------------------------------------------------------------
+% 6 Gleichungen
+% ---------------------------------------------------------------------------
+\aufgabe{6.3}
+Lösen Sie die Gleichungen.
+\begin{multicols}{3}
+\begin{parts}\bruchabstand
+  \part $x + 7 = 3$
+  \part $3x = 21$
+  \part $4x - 5 = 11$
+  \part $12 = 5x + 2$
+  \part $\dfrac{x}{3} = 6$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $x = -4$ \quad b) $x = 7$ \quad c) $x = 4$ \quad d) $x = 2$ \quad
+  e) $x = 18$
+  \diagnose{Bei d) steht die Variable rechts, was manche Schülerinnen und
+  Schüler verunsichert. $x = 2$ bei e) zeigt, dass Umkehroperationen
+  verwechselt werden.}
+\end{solution}
+\raum{3.5cm}
+
+\aufgabe{6.4}
+Lösen Sie die Gleichungen.
+\begin{multicols}{3}
+\begin{parts}
+  \part $5x + 3 = 2x + 15$
+  \part $7 - 2x = 1$
+  \part $3x = 0$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $x = 4$ \quad b) $x = 3$ \quad c) $x = 0$
+  \diagnose{$x = -3$ bei b) zeigt Vorzeichenfehler beim Umformen. Bei c)
+  antworten manche «keine Lösung» oder «$x$ ist nicht definiert», weil $0$
+  nicht als Lösung akzeptiert wird.}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 7 Funktionen und Graphen
+% ---------------------------------------------------------------------------
+\aufgabe{7.3}
+Der Graph zeigt, wie weit eine Person von zu Hause entfernt ist.
+
+\begin{center}
+\begin{tikzpicture}[x=0.22cm, y=1.1cm]
+  \draw[gray!35, thin, xstep=5, ystep=0.5] (0,0) grid (45,3.5);
+  \draw[->, thick] (0,0) -- (47,0) node[right] {\small Zeit (min)};
+  \draw[->, thick] (0,0) -- (0,3.9) node[above] {\small Entfernung (km)};
+  \foreach \t in {0,10,20,30,40} \node[below, font=\scriptsize] at (\t,0) {$\t$};
+  \foreach \s in {1,2,3} \node[left, font=\scriptsize] at (0,\s) {$\s$};
+  \draw[very thick] (0,0) -- (20,3) -- (30,3) -- (40,0);
+\end{tikzpicture}
+\end{center}
+\begin{parts}
+  \part Wie weit ist die Person nach 20 Minuten von zu Hause entfernt?
+  \part Was geschieht zwischen der 20.\ und der 30.\ Minute?
+  \part In welchem Abschnitt bewegt sich die Person am schnellsten?
+        Begründen Sie.
+  \part Berechnen Sie die Geschwindigkeit im ersten Abschnitt in km/h.
+\end{parts}
+\begin{solution}
+  a) $3$\,km \quad b) Die Person bleibt stehen (macht eine Pause). \quad
+  c) Auf dem Rückweg (30.--40.\ Minute), weil der Graph dort am steilsten ist.
+  \quad d) $3$\,km in $20$\,min, also $9$\,km/h.
+  \diagnose{Wird bei c) der «höchste» Abschnitt gewählt, so wird die Höhe des
+  Graphen statt seiner Steigung gelesen. Bei b) zeigt «sie geht geradeaus
+  weiter», dass der Graph als Bild des Weges gedeutet wird.}
+\end{solution}
+\raum{3.5cm}
+
+\aufgabe{7.4}
+Eine Velofahrerin fährt über einen Hügel: zuerst bergauf, dann bergab.
+Welcher Graph zeigt ihre Geschwindigkeit $v$ in Abhängigkeit von der Zeit $t$
+am besten? Kreuzen Sie an.
+
+\begin{center}
+\newcommand{\achsen}{%
+  \draw[->] (0,0) -- (2.4,0) node[below] {\scriptsize $t$};
+  \draw[->] (0,0) -- (0,1.7) node[left]  {\scriptsize $v$};}
+\begin{tikzpicture}[thick]
+  \begin{scope}[xshift=0cm]
+    \achsen \draw[very thick] (0,0.3) .. controls (0.8,1.6) and (1.4,1.6) .. (2.2,0.3);
+    \node at (1.1,-0.5) {\wahl{Graph 1}};
+  \end{scope}
+  \begin{scope}[xshift=3.3cm]
+    \achsen \draw[very thick] (0,1.0) .. controls (0.6,0.3) and (0.9,0.3) .. (1.1,0.35)
+                                     .. controls (1.4,0.5) and (1.8,1.3) .. (2.2,1.5);
+    \node at (1.1,-0.5) {\wahlr{Graph 2}};
+  \end{scope}
+  \begin{scope}[xshift=6.6cm]
+    \achsen \draw[very thick] (0,1.4) -- (2.2,0.3);
+    \node at (1.1,-0.5) {\wahl{Graph 3}};
+  \end{scope}
+  \begin{scope}[xshift=9.9cm]
+    \achsen \draw[very thick] (0,0.3) -- (1.1,1.3) -- (2.2,1.3);
+    \node at (1.1,-0.5) {\wahl{Graph 4}};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\begin{solution}
+  Graph 2: Bergauf nimmt die Geschwindigkeit ab, bergab nimmt sie zu.
+  \diagnose{Die Wahl von Graph 1 zeigt die klassische Fehlvorstellung «Graph
+  als Bild der Situation»: Der Graph sieht aus wie der Hügel, beschreibt aber
+  nicht die Geschwindigkeit.}
+\end{solution}
+
+% ---------------------------------------------------------------------------
+% 8 Geometrie und Grössen
+% ---------------------------------------------------------------------------
+\aufgabe{8.3}
+Aus einem Rechteck wird an einer Ecke ein kleineres Rechteck herausgeschnitten.
+Berechnen Sie den Flächeninhalt und den Umfang der Figur.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+  \draw[very thick, fill=gray!10] (0,0) -- (8,0) -- (8,4) -- (5,4) -- (5,6) -- (0,6) -- cycle;
+  \draw[dashed, gray] (5,4) -- (5,6) (5,6) -- (8,6) -- (8,4);
+  \node[below] at (4,0) {\small $8$\,cm};
+  \node[left]  at (0,3) {\small $6$\,cm};
+  \node[above] at (6.5,6) {\small $3$\,cm};
+  \node[right] at (8,5) {\small $2$\,cm};
+\end{tikzpicture}
+\end{center}
+\begin{solution}
+  Flächeninhalt: $8 \cdot 6 - 3 \cdot 2 = 42$\,cm$^2$ \qquad
+  Umfang: $28$\,cm (gleich wie beim ganzen Rechteck)
+  \diagnose{Wer beim Umfang etwas abzieht (z.\,B.\ $28 - 10 = 18$\,cm),
+  überträgt die Überlegung zur Fläche auf den Umfang. Das zeigt, dass Umfang
+  und Fläche nicht als verschiedene Grössen verstanden werden.}
+\end{solution}
+\raum{3.5cm}
+
+\aufgabe{8.4}
+\begin{parts}
+  \part In einem Dreieck sind zwei Winkel $47^\circ$ und $68^\circ$ gross. Wie
+        gross ist der dritte Winkel?
+  \part Ein Aquarium ist $50$\,cm lang, $40$\,cm breit und $30$\,cm hoch. Wie
+        viele Liter Wasser fasst es?
+\end{parts}
+\begin{solution}
+  a) $65^\circ$ \qquad b) $60\,000$\,cm$^3 = 60$\,dm$^3 = 60$\,Liter
+  \diagnose{Ergebnisse wie $600$\,L oder $6$\,L bei b) zeigen, dass der
+  Zusammenhang $1\,\text{dm}^3 = 1$\,L bzw.\ die Umrechnung von
+  Volumeneinheiten nicht gesichert ist.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 9 Sprache ↔ Mathematik
+% ---------------------------------------------------------------------------
+\aufgabe{9.3}
+Schreiben Sie als \textbf{einen} Rechenausdruck und berechnen Sie das Ergebnis.
+\begin{parts}
+  \part das Dreifache der Differenz von $12$ und $5$
+  \part die Differenz aus dem Dreifachen von $12$ und $5$
+  \part Subtrahieren Sie $4$ von $10$.
+  \part die Hälfte der Summe von $9$ und $15$
+\end{parts}
+\begin{solution}
+  a) $3 \cdot (12 - 5) = 21$ \quad b) $3 \cdot 12 - 5 = 31$ \quad
+  c) $10 - 4 = 6$ \quad d) $(9 + 15) \geteilt 2 = 12$
+  \diagnose{a) und b) enthalten dieselben Wörter in anderer Reihenfolge und
+  ergeben verschiedene Strukturen. Fehlende Klammern bei a) oder d) zeigen,
+  dass die Struktur des Satzes nicht in die Rechnung übertragen wird. $4 - 10$
+  bei c) ist die typische Umkehrung der Reihenfolge.}
+\end{solution}
+\raum{3.5cm}
+
+\aufgabe{9.4}
+Eine Klasse mit 24 Schülerinnen und Schülern macht einen Ausflug. Die Bahnfahrt
+kostet pro Person CHF 18.50, der Museumseintritt pro Person CHF 12. Die Klasse
+fährt um 8:15 Uhr ab und ist um 16:40 Uhr zurück. Die Schule übernimmt
+CHF 300 der Gesamtkosten. Wie viel muss jede Person selbst bezahlen?
+\begin{solution}
+  Kosten pro Person: $18.50 + 12 = 30.50$; Gesamtkosten:
+  $24 \cdot 30.50 = 732$; nach Abzug: $732 - 300 = 432$; pro Person:
+  $432 \geteilt 24 = 18$. Jede Person bezahlt CHF 18.
+  \diagnose{Die Zeitangaben sind überflüssig. Wer sie verwendet, kann die
+  relevanten Informationen nicht auswählen. Wird CHF 300 von den Kosten einer
+  Person abgezogen, so fehlt die Unterscheidung zwischen Gesamt- und
+  Einzelgrösse.}
+\end{solution}
+\raum{4.5cm}
+
+% ===========================================================================
+\newpage
+\teil{C}{Rechnen mit Variablen}
+% ===========================================================================
+
+% ---------------------------------------------------------------------------
+% 1 Zahlen und Stellenwert
+% ---------------------------------------------------------------------------
+\aufgabe{1.5}
+\begin{parts}
+  \part Schreiben Sie in wissenschaftlicher Schreibweise:
+        \quad $45\,000\,000$ \qquad $0.00072$
+  \part Schreiben Sie als Dezimalzahl:
+        \quad $3.1 \cdot 10^5$ \qquad $6 \cdot 10^{-3}$
+  \part Berechnen Sie die beiden Ausdrücke und geben Sie die Ergebnisse in
+        wissenschaftlicher Schreibweise bzw.\ als Zehnerpotenz an.
+  \begin{multicols}{2}
+  \begin{subparts}
+    \subpart $(2 \cdot 10^3) \cdot (4 \cdot 10^5)$
+    \subpart $10^6 \geteilt 10^2$
+  \end{subparts}
+  \end{multicols}
+\end{parts}
+\begin{solution}
+  a) $4.5 \cdot 10^7$; \ $7.2 \cdot 10^{-4}$ \quad
+  b) $310\,000$; \ $0.006$ \quad
+  c) $8 \cdot 10^8$; \ $10^4$
+  \diagnose{Falsch gezählte Stellen zeigen fehlendes Stellenwertverständnis.
+  Werden negative Exponenten als negative Zahlen gedeutet ($6 \cdot 10^{-3}
+  = -6000$), fehlt die Bedeutung der Schreibweise. $10^{15}$ bzw.\ $10^3$ bei
+  c) zeigen, dass Exponenten multipliziert bzw.\ dividiert statt addiert bzw.\
+  subtrahiert werden.}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 2 Operationen und Rechenreihenfolge
+% ---------------------------------------------------------------------------
+\aufgabe{2.5}
+Berechnen Sie den Wert der Terme für $a = -2$ und $b = 3$.
+\begin{multicols}{3}
+\begin{parts}
+  \part $3a + b$
+  \part $a^2$
+  \part $-a^2$
+  \part $2b - a$
+  \part $a \cdot b^2$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $-3$ \quad b) $4$ \quad c) $-4$ \quad d) $8$ \quad e) $-18$
+  \diagnose{Eine der aussagekräftigsten Aufgaben. $-4$ bei b) zeigt, dass ohne
+  Klammern eingesetzt wird ($-2^2$ statt $(-2)^2$). $4$ bei c) zeigt
+  Unsicherheit mit dem Minuszeichen vor der Potenz. $36$ bei e) zeigt, dass
+  $(ab)^2$ gerechnet wird.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 3 Brüche
+% ---------------------------------------------------------------------------
+\aufgabe{3.5}
+Fassen Sie zusammen und vereinfachen Sie so weit wie möglich.
+\begin{multicols}{2}
+\begin{parts}\bruchabstand
+  \part $\dfrac{a}{4} + \dfrac{b}{6}$
+  \part $\dfrac{x}{3} - \dfrac{x}{5}$
+  \part $\dfrac{3}{x} + \dfrac{2}{x}$
+  \part $\dfrac{2}{a} \cdot \dfrac{a}{6}$
+\end{parts}
+\end{multicols}
+\begin{solution}
+  a) $\frac{3a + 2b}{12}$ \quad b) $\frac{2x}{15}$ \quad c) $\frac{5}{x}$ \quad
+  d) $\frac{1}{3}$
+  \diagnose{Diese Aufgabe entspricht 3.3 mit Variablen. Gelingt 3.3, aber nicht
+  3.5, so liegt die Schwierigkeit beim Übergang zur Algebra, nicht bei den
+  Bruchregeln. $\frac{5}{2x}$ bei c) oder $\frac{a+b}{10}$ bei a) zeigen
+  getrenntes Addieren von Zählern und Nennern.}
+\end{solution}
+\raum{4cm}
+
+% ---------------------------------------------------------------------------
+% 4 Proportionalität und Prozent
+% ---------------------------------------------------------------------------
+\aufgabe{4.5}
+\begin{parts}
+  \part Entscheiden Sie bei jeder Tabelle, ob die Zuordnung proportional,
+        umgekehrt proportional oder keines von beidem ist. Geben Sie bei
+        proportionalen Zuordnungen die Gleichung $y = k \cdot x$ an.
+  \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    \newcommand{\tab}[5]{%
+      \begin{tabular}[t]{@{}c@{}}
+        \small Tabelle #1 \\[0.5ex]
+        \begin{tabular}{|c|c|c|c|c|}
+          \hline $x$ & 1 & 2 & 4 & 5 \\ \hline
+                 $y$ & #2 & #3 & #4 & #5 \\ \hline
+        \end{tabular}
+      \end{tabular}}
+    \tab{1}{3}{6}{12}{15} \qquad \tab{2}{5}{7}{11}{13} \qquad \tab{3}{20}{10}{5}{4}
+  \end{center}
+  \part $4$ Personen brauchen für eine Arbeit $6$ Tage. Wie lange brauchen
+        $3$ Personen bei gleichem Arbeitstempo?
+\end{parts}
+\begin{solution}
+  a) Tabelle 1: proportional, $y = 3x$; \ Tabelle 2: keines von beidem
+  ($y = 2x + 3$); \ Tabelle 3: umgekehrt proportional ($x \cdot y = 20$)
+  \qquad b) $8$ Tage
+  \diagnose{Tabelle 2 ist die zentrale Falle: «gleichmässig wachsend» wird mit
+  proportional verwechselt. $4.5$ Tage bei b) zeigen, dass ohne Prüfung direkt
+  proportional gerechnet wird.}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 5 Terme
+% ---------------------------------------------------------------------------
+\aufgabe{5.5}
+\begin{parts}
+  \part Multiplizieren Sie aus und vereinfachen Sie.
+  \begin{multicols}{4}
+    $3 \cdot (x + 4)$ \columnbreak
+
+    $(-2) \cdot (a - 5)$ \columnbreak
+
+    $(x + 3)(x + 2)$ \columnbreak
+
+    $(a + b)^2$
+  \end{multicols}
+  \part Klammern Sie so weit wie möglich aus.
+        \qquad $6x + 9$ \qquad\qquad $x^2 - 5x$
+\end{parts}
+\begin{solution}
+  a) $3x + 12$; \ $-2a + 10$; \ $x^2 + 5x + 6$; \ $a^2 + 2ab + b^2$ \quad
+  b) $3 \cdot (2x + 3)$; \ $x(x - 5)$
+  \diagnose{$3x + 4$ zeigt, dass nur der erste Summand multipliziert wird.
+  $-2a - 10$ zeigt Vorzeichenfehler. $(a + b)^2 = a^2 + b^2$ ist der häufigste
+  Fehler überhaupt und zeigt, dass Potenzieren über die Addition «verteilt»
+  wird.}
+\end{solution}
+\raum{4cm}
+
+% ---------------------------------------------------------------------------
+% 6 Gleichungen
+% ---------------------------------------------------------------------------
+\aufgabe{6.5}
+\begin{parts}
+  \part Lösen Sie die Gleichungen.
+  \begin{multicols}{3}
+    $3 \cdot (x - 2) = 2x + 1$ \columnbreak
+
+    $\dfrac{x}{2} + \dfrac{x}{3} = 10$ \columnbreak
+
+    $\dfrac{x + 1}{4} = \dfrac{x - 2}{3}$
+  \end{multicols}
+  \part Prüfen Sie, \textbf{ohne die Gleichung zu lösen}, ob $x = 2$ eine Lösung
+        der folgenden Gleichung ist.
+        \[ 5x - 3 = 2 \cdot (x + 1) + 1 \]
+\end{parts}
+\begin{solution}
+  a) $x = 7$; \ $x = 12$; \ $x = 11$ \qquad
+  b) Ja: Für $x = 2$ ergeben beide Seiten $7$.
+  \diagnose{Teil b) prüft, ob verstanden wird, was eine Lösung ist, unabhängig
+  vom Lösungsverfahren. Wer b) nur durch Lösen der Gleichung beantworten kann,
+  verwendet ein Verfahren ohne Begriffsverständnis.}
+\end{solution}
+\raum{4.5cm}
+
+% ---------------------------------------------------------------------------
+% 7 Funktionen und Graphen
+% ---------------------------------------------------------------------------
+\aufgabe{7.5}
+\begin{parts}
+  \part Geben Sie für die Gerade im linken Koordinatensystem die Steigung, den
+        $y$-Achsenabschnitt und die Funktionsgleichung an.
+  \part Zeichnen Sie den Graphen von $y = -\frac{1}{2}x + 3$ ins rechte
+        Koordinatensystem.
+\end{parts}
+
+\begin{center}
+\newcommand{\koord}[4]{% xmin, xmax, ymin, ymax
+  \draw[gray!35, thin] (#1,#3) grid (#2,#4);
+  \draw[->, thick] (#1-0.4,0) -- (#2+0.5,0) node[right] {\small $x$};
+  \draw[->, thick] (0,#3-0.4) -- (0,#4+0.5) node[above] {\small $y$};
+  \foreach \t in {#1,...,#2} {\ifnum\t=0\else
+    \draw (\t,0.1) -- (\t,-0.1) node[below, font=\tiny] {$\t$};\fi}
+  \foreach \t in {#3,...,#4} {\ifnum\t=0\else
+    \draw (0.1,\t) -- (-0.1,\t) node[left, font=\tiny] {$\t$};\fi}}
+\begin{tikzpicture}[scale=0.5]
+  \koord{-3}{4}{-3}{7}
+  \draw[very thick, domain=-2:3] plot (\x, {2*\x + 1});
+  \fill (0,1) circle (4pt) (2,5) circle (4pt);
+\end{tikzpicture}
+\hspace{1.5cm}
+\begin{tikzpicture}[scale=0.5]
+  \koord{-2}{8}{-2}{6}
+  \ifprintanswers
+    \draw[very thick, domain=-2:8] plot (\x, {-0.5*\x + 3});
+  \fi
+\end{tikzpicture}
+\end{center}
+\begin{parts}
+  \setcounter{partno}{2}
+  \part Liegt der Punkt $\pkt{4}{7}$ auf der Geraden $y = 2x - 1$? Begründen Sie.
+  \part Die Werte in der Tabelle gehören zu einer linearen Funktion.
+        Bestimmen Sie die Funktionsgleichung.
+  \quad
+  \begin{tabular}{|c|c|c|c|}
+    \hline $x$ & $0$ & $1$ & $2$  \\ \hline
+           $y$ & $4$ & $1$ & $-2$ \\ \hline
+  \end{tabular}
+\end{parts}
+\begin{solution}
+  a) Steigung $2$, $y$-Achsenabschnitt $1$, $y = 2x + 1$ \quad
+  b) Gerade durch $\pkt{0}{3}$ und $\pkt{6}{0}$ (siehe Grafik) \quad
+  c) Ja, denn $2 \cdot 4 - 1 = 7$. \quad
+  d) $y = -3x + 4$
+  \diagnose{Die Aufgabe prüft alle Wechsel zwischen Graph, Gleichung und
+  Tabelle. Typische Fehler: Steigung als $\frac{\Delta x}{\Delta y}$ berechnet
+  ($\frac{1}{2}$), negative Steigung steigend gezeichnet, $y$-Achsenabschnitt
+  und Nullstelle verwechselt.}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 8 Geometrie und Grössen
+% ---------------------------------------------------------------------------
+\aufgabe{8.5}
+\begin{parts}
+  \part Ein rechtwinkliges Dreieck hat die Katheten $6$\,cm und $8$\,cm.
+        Berechnen Sie die Länge der Hypotenuse.
+  \part In einem rechtwinkligen Dreieck ist die Hypotenuse $13$\,cm und eine
+        Kathete $5$\,cm lang. Berechnen Sie die Länge der anderen Kathete.
+  \part Eine $10$\,m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuss
+        steht $6$\,m von der Wand entfernt. In welcher Höhe berührt die Leiter
+        die Wand?
+  \part Ist ein Dreieck mit den Seitenlängen $7$\,cm, $24$\,cm und $25$\,cm
+        rechtwinklig? Begründen Sie.
+\end{parts}
+\begin{solution}
+  a) $10$\,cm \quad b) $12$\,cm \quad c) $8$\,m \quad
+  d) Ja, denn $7^2 + 24^2 = 49 + 576 = 625 = 25^2$.
+  \diagnose{$\sqrt{194}$ bei b) zeigt, dass $a^2 + b^2 = c^2$ mechanisch
+  angewendet wird, ohne die Hypotenuse zu identifizieren. c) verlangt, das
+  rechtwinklige Dreieck in einer Situation zu erkennen. d) prüft die Umkehrung
+  des Satzes von Pythagoras.}
+\end{solution}
+\raum{5cm}
+
+% ---------------------------------------------------------------------------
+% 9 Sprache ↔ Mathematik
+% ---------------------------------------------------------------------------
+\aufgabe{9.5}
+\begin{parts}
+  \part Schreiben Sie als Term: \quad «$5$ weniger als das Doppelte von $x$»
+        \quad und \quad «um $3$ grösser als die Hälfte von $y$»
+  \part An einer Schule gibt es sechsmal so viele Schülerinnen und Schüler wie
+        Lehrpersonen. Schreiben Sie diese Aussage als Gleichung. Verwenden Sie
+        $S$ für die Anzahl Schülerinnen und Schüler und $L$ für die Anzahl
+        Lehrpersonen.
+  \part Beschreiben Sie die Terme in Worten: \quad $3 \cdot (x + 4)$ \quad und \quad
+        $3x + 4$
+  \part Verdoppelt man eine Zahl und addiert $7$, so erhält man $31$. Stellen
+        Sie eine Gleichung auf und bestimmen Sie die Zahl.
+\end{parts}
+\begin{solution}
+  a) $2x - 5$; \ $\frac{y}{2} + 3$ \quad
+  b) $S = 6L$ \quad
+  c) «das Dreifache der Summe von $x$ und $4$»; «die Summe aus dem Dreifachen
+  von $x$ und $4$» \quad
+  d) $2x + 7 = 31$, $x = 12$
+  \diagnose{b) ist die klassische «Studierende-und-Professoren»-Aufgabe: $6S = L$
+  entsteht durch Wort-für-Wort-Übersetzung, ohne die Beziehung zu erfassen.
+  $5 - 2x$ bei a) zeigt die Umkehrung bei «weniger als». c) ist die
+  Gegenrichtung zu 9.3.}
+\end{solution}
+\raum{4.5cm}
+
+% ===========================================================================
+\newpage
+\teil{D}{Vertiefung}
+% ===========================================================================
+
+% ---------------------------------------------------------------------------
+% 1 Zahlen und Stellenwert
+% ---------------------------------------------------------------------------
+\aufgabe{1.6}
+\begin{parts}
+  \part Geben Sie für jede Zahl alle Zahlenmengen ($\mathbb{N}$, $\mathbb{Z}$,
+        $\mathbb{Q}$, $\mathbb{R}$) an, zu denen sie gehört.
+        \[
+          -3 \qquad 0.75 \qquad \sqrt{2} \qquad \frac{12}{4} \qquad 0.333\ldots
+        \]
+  \part Kann das Ergebnis stimmen? Entscheiden Sie \textbf{ohne nachzurechnen}
+        und begründen Sie.
+        \begin{itemize}
+          \item Lena rechnet: $0.6 \geteilt 0.03 = 2$.
+          \item Ein Schüler berechnet das Volumen eines Schulzimmers und erhält
+                $18$\,m$^3$.
+        \end{itemize}
+\end{parts}
+\begin{solution}
+  a) $-3$: $\mathbb{Z}, \mathbb{Q}, \mathbb{R}$; \
+  $0.75$: $\mathbb{Q}, \mathbb{R}$; \
+  $\sqrt{2}$: $\mathbb{R}$; \
+  $\frac{12}{4}$: $\mathbb{N}, \mathbb{Z}, \mathbb{Q}, \mathbb{R}$; \
+  $0.333\ldots$: $\mathbb{Q}, \mathbb{R}$ \\
+  b) Beides ist nicht plausibel: Division durch eine Zahl kleiner als $1$
+  vergrössert (richtig: $20$). Ein Schulzimmer hat etwa $150$ bis
+  $200$\,m$^3$.
+  \diagnose{Wird $\frac{12}{4}$ nur $\mathbb{Q}$ zugeordnet, so wird die Zahl
+  nach ihrer Schreibweise statt nach ihrem Wert beurteilt. Die Zahl $0$ wurde
+  bewusst vermieden, da Lehrmittel uneinheitlich sind, ob $0 \in \mathbb{N}$.}
+\end{solution}
+\raum{4cm}
+
+% ---------------------------------------------------------------------------
+% 2 Operationen und Rechenreihenfolge
+% ---------------------------------------------------------------------------
+\aufgabe{2.6}
+\begin{parts}
+  \part Welche Terme sind für alle Werte von $x$ gleichwertig mit $2 \cdot (x - 3)$?
+        Kreuzen Sie an.
+
+        \wahl{$2x - 3$} \quad \wahlr{$2x - 6$} \quad \wahlr{$(-2) \cdot (3 - x)$}
+        \quad \wahlr{$(x - 3) \cdot 2$} \quad \wahl{$2 \cdot (3 - x)$}
+  \part Gilt $(a - b)^2 = (b - a)^2$ für alle Zahlen $a$ und $b$? Begründen Sie.
+\end{parts}
+\begin{solution}
+  a) $2x - 6$, \ $(-2) \cdot (3 - x)$, \ $(x - 3) \cdot 2$ \qquad
+  b) Ja, denn $b - a = -(a - b)$, und beim Quadrieren fällt das Vorzeichen weg.
+  \diagnose{Die Aufgabe prüft, ob Gleichwertigkeit an der Struktur erkannt wird.
+  Wer nur einzelne Werte einsetzt, kann b) nicht allgemein begründen.}
+\end{solution}
+\raum{3cm}
+
+% ---------------------------------------------------------------------------
+% 3 Brüche
+% ---------------------------------------------------------------------------
+\aufgabe{3.6}
+\begin{parts}
+  \part Fassen Sie zusammen: \quad $\dfrac{1}{x} + \dfrac{1}{x + 1}$
+  \part Kürzen Sie, falls möglich:
+        \quad $\dfrac{3x + 6}{x + 2}$ \qquad $\dfrac{x^2 - 9}{x - 3}$
+        \qquad $\dfrac{x + 5}{5}$
+\end{parts}
+\begin{solution}
+  a) $\frac{2x + 1}{x(x + 1)}$ \quad
+  b) $3$; \ $x + 3$; \ nicht kürzbar
+  \diagnose{$\frac{x + 5}{5} = x + 1$ oder $= x$ zeigt «Kürzen aus Summen». Wer
+  bei den ersten beiden Brüchen nicht faktorisiert, erkennt die Struktur nicht.
+  Die Angabe der Definitionslücken ($x \neq -2$, $x \neq 3$) wird auf diesem
+  Niveau nicht verlangt.}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 4 Proportionalität und Prozent
+% ---------------------------------------------------------------------------
+\aufgabe{4.6}
+\begin{parts}
+  \part Ein Preis wird zuerst um $20\,\%$ erhöht und danach um $20\,\%$
+        gesenkt. Ist er danach gleich hoch wie zu Beginn? Begründen Sie.
+  \part Nach einer Erhöhung um $25\,\%$ kostet ein Artikel CHF 150. Wie viel
+        kostete er vorher?
+  \part Eine Bevölkerung von $P$ Personen wächst jährlich um $3\,\%$. Geben Sie
+        einen Term für die Bevölkerung nach $n$ Jahren an.
+\end{parts}
+\begin{solution}
+  a) Nein: $1.2 \cdot 0.8 = 0.96$, der Preis ist $4\,\%$ tiefer. \quad
+  b) $150 \geteilt 1.25 = 120$, also CHF 120 \quad
+  c) $P \cdot 1.03^n$
+  \diagnose{CHF 112.50 bei b) zeigt, dass $25\,\%$ vom neuen statt vom alten
+  Wert abgezogen werden. $P + 0.03n$ oder $P \cdot 0.03^n$ bei c) zeigen, dass
+  der Wachstumsfaktor nicht verstanden ist.}
+\end{solution}
+\raum{4cm}
+
+% ---------------------------------------------------------------------------
+% 5 Terme
+% ---------------------------------------------------------------------------
+\aufgabe{5.6}
+\begin{parts}
+  \part Faktorisieren Sie so weit wie möglich.
+  \begin{multicols}{4}
+    $x^2 - 9$ \columnbreak
+
+    $x^2 + 6x + 9$ \columnbreak
+
+    $4a^2b - 6ab^2$ \columnbreak
+
+    $ax + ay - bx - by$
+  \end{multicols}
+  \part Ergänzen Sie: \quad $x^2 + \kaestchen\,x + 25 = (x + \kaestchen)^2$
+\end{parts}
+\begin{solution}
+  a) $(x - 3)(x + 3)$; \ $(x + 3)^2$; \ $2ab(2a - 3b)$; \ $(a - b)(x + y)$
+  \quad b) $10$ und $5$
+  \diagnose{Faktorisieren verlangt, die binomischen Formeln «rückwärts» zu
+  lesen. Wer 5.5 lösen kann, hier aber scheitert, kennt die Formeln nur in eine
+  Richtung.}
+\end{solution}
+\raum{3.5cm}
+
+% ---------------------------------------------------------------------------
+% 6 Gleichungen
+% ---------------------------------------------------------------------------
+\aufgabe{6.6}
+\begin{parts}
+  \part Lösen Sie nach der angegebenen Variable auf.
+  \begin{multicols}{3}
+    $A = \frac{1}{2} \cdot g \cdot h$ \ nach $h$ \columnbreak
+
+    $v = \dfrac{s}{t}$ \ nach $t$ \columnbreak
+
+    $F = \frac{9}{5} \cdot C + 32$ \ nach $C$
+  \end{multicols}
+  \part Lösen Sie nach $x$ auf ($a \neq 3$): \quad $ax = 3x + 5$
+  \part Bestimmen Sie die Lösungsmenge.
+        \quad $2 \cdot (x + 1) = 2x + 2$ \qquad $2 \cdot (x + 1) = 2x + 3$
+\end{parts}
+\begin{solution}
+  a) $h = \frac{2A}{g}$; \ $t = \frac{s}{v}$; \ $C = \frac{5}{9} \cdot (F - 32)$
+  \quad b) $x = \frac{5}{a - 3}$ \quad
+  c) $\mathbb{L} = \mathbb{R}$; \ $\mathbb{L} = \{\,\}$
+  \diagnose{Bei b) muss $x$ ausgeklammert werden ($x(a - 3) = 5$). Wer nur
+  Gleichungen mit Zahlen lösen kann, kommt hier nicht weiter. Bei c) zeigt
+  die Reaktion «$0 = 1$, also habe ich mich verrechnet», dass Lösungsmengen
+  ohne genau eine Lösung unbekannt sind.}
+\end{solution}
+\raum{4.5cm}
+
+% ---------------------------------------------------------------------------
+% 7 Funktionen und Graphen
+% ---------------------------------------------------------------------------
+\aufgabe{7.6}
+\begin{parts}
+  \part Was haben alle Geraden mit der Gleichung $y = mx + 2$ gemeinsam? Was
+        haben alle Geraden mit der Gleichung $y = 3x + q$ gemeinsam?
+  \part Berechnen Sie den Schnittpunkt der Geraden $y = 2x + 1$ und
+        $y = -x + 7$.
+  \part Für welchen Wert von $m$ verläuft die Gerade $y = mx + 2$ durch den
+        Punkt $\pkt{4}{0}$?
+\end{parts}
+\begin{solution}
+  a) Alle verlaufen durch $\pkt{0}{2}$; alle sind parallel (Steigung $3$).
+  \quad b) $2x + 1 = -x + 7 \Rightarrow x = 2$, also $S\pkt{2}{5}$
+  \quad c) $0 = 4m + 2 \Rightarrow m = -\frac{1}{2}$
+  \diagnose{Die Aufgabe prüft, ob ein Buchstabe als Parameter (fest, aber
+  beliebig) und nicht als Variable verstanden wird, und ob ein Schnittpunkt als
+  Lösung einer Gleichung erkannt wird.}
+\end{solution}
+\raum{4cm}
+
+% ---------------------------------------------------------------------------
+% 8 Geometrie und Grössen
+% ---------------------------------------------------------------------------
+\aufgabe{8.6}
+\begin{parts}
+  \part Die Geraden $AA'$ und $BB'$ sind parallel. Berechnen Sie die Längen
+        $\overline{SB'}$ und $\overline{BB'}$. (Skizze nicht massstäblich)
+
+  \begin{center}
+  \begin{tikzpicture}[scale=0.8]
+    \coordinate (S) at (0,0);
+    \coordinate (A) at (4,0);   \coordinate (B) at (6,0);
+    \coordinate (A2) at (3.2,2.4); \coordinate (B2) at (4.8,3.6);
+    \draw[thick] (S) -- (7,0);
+    \draw[thick] (S) -- (5.6,4.2);
+    \draw[thick] (A) -- (A2);
+    \draw[thick] (B) -- (B2);
+    \foreach \p/\pos in {S/left, A/below, B/below, A2/above left, B2/above left}
+      \fill (\p) circle (2pt);
+    \node[left]        at (S)  {$S$};
+    \node[below]       at (A)  {$A$};
+    \node[below]       at (B)  {$B$};
+    \node[above left]  at (A2) {$A'$};
+    \node[above left]  at (B2) {$B'$};
+    \node[below, font=\small] at (2,0)       {$4$\,cm};
+    \node[below, font=\small] at (5,0)       {$2$\,cm};
+    \node[above left, font=\small] at (1.6,1.2) {$5$\,cm};
+    \node[right, font=\small] at (3.6,1.2)   {$3$\,cm};
+  \end{tikzpicture}
+  \end{center}
+  \part Eine $1.80$\,m grosse Person wirft einen $1.20$\,m langen Schatten. Ein
+        Baum wirft gleichzeitig einen $8$\,m langen Schatten. Wie hoch ist der
+        Baum?
+  \part Ein Quadrat mit der Seitenlänge $a$ wird mit dem Faktor $k$ vergrössert.
+        Geben Sie den Umfang und den Flächeninhalt des neuen Quadrats an.
+\end{parts}
+\begin{solution}
+  a) $\overline{SB} = 6$\,cm, also $\overline{SB'} = 5 \cdot \frac{6}{4} =
+  7.5$\,cm und $\overline{BB'} = 3 \cdot \frac{6}{4} = 4.5$\,cm \quad
+  b) $12$\,m \quad
+  c) Umfang $4ka$, Flächeninhalt $k^2a^2$
+  \diagnose{Bei a) zeigen Ergebnisse wie $\overline{BB'} = 1.5$\,cm oder
+  $\overline{SB'} = 2.5$\,cm, dass mit der Teilstrecke $\overline{AB}$ statt
+  mit $\overline{SB}$ gerechnet wird. Additive Ansätze ($3 + 2 = 5$) zeigen
+  fehlendes Verständnis der Ähnlichkeit. $ka^2$ bei c) zeigt, dass die Fläche
+  wie die Länge skaliert wird.}
+\end{solution}
+\raum{4cm}
+
+% ---------------------------------------------------------------------------
+% 9 Sprache ↔ Mathematik
+% ---------------------------------------------------------------------------
+\aufgabe{9.6}
+\begin{parts}
+  \part Handyabo A kostet CHF 20 pro Monat plus CHF 0.10 pro Gesprächsminute.
+        Abo B kostet pauschal CHF 35 pro Monat. Stellen Sie für beide Abos
+        einen Term für die Monatskosten bei $x$ Minuten auf. Ab wie vielen
+        Minuten ist Abo B günstiger?
+  \part Für einen Schulausflug fahren $200$ Personen mit Bussen, die je
+        $45$ Plätze haben. Wie viele Busse braucht es?
+\end{parts}
+\begin{solution}
+  a) A: $20 + 0.1x$; B: $35$. Aus $20 + 0.1x = 35$ folgt $x = 150$. Abo B ist
+  ab mehr als $150$ Minuten günstiger. \quad
+  b) $200 \geteilt 45 \approx 4.4$, also braucht es $5$ Busse.
+  \diagnose{Die Antwort «$150$» ohne Aussage, was darunter und darüber gilt,
+  zeigt, dass die Lösung nicht im Kontext gedeutet wird. Bei b) sind $4.44$
+  oder $4$ Busse die klassischen Zeichen dafür, dass ein Rechenergebnis nicht
+  auf die Situation zurückbezogen wird.}
+\end{solution}
+\raum{4.5cm}
+
+
+\end{questions}
+
+% ===========================================================================
+% Auswertungsraster (für die Lehrperson)
+% ===========================================================================
+\newpage
+\section*{Auswertung \normalsize(wird von der Lehrperson ausgefüllt)}
+
+Pro Aufgabe: \quad \textbf{2} = sicher gelöst \quad \textbf{1} = teilweise
+gelöst \quad \textbf{0} = nicht gelöst. \\
+Die \emph{Bruchstelle} ist das tiefste Niveau eines Strangs, auf dem die
+Aufgaben nicht mehr sicher gelöst werden.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{2.2}
+\newcommand{\feld}[1]{#1\,\framebox[0.6cm]{\rule{0pt}{0.9em}}}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{3.5cm}|c|c|c|c|p{1.9cm}|}
+  \hline
+  \textbf{Strang}
+    & \textbf{A}\,\footnotesize Grundlagen & \textbf{B}\,\footnotesize Numerisch
+    & \textbf{C}\,\footnotesize Symbol. & \textbf{D}\,\footnotesize Formal
+    & \footnotesize\textbf{Bruchstelle} \\ \hline
+  1 Zahlen und Stellenwert          & \feld{1.1}\ \feld{1.2} & \feld{1.3}\ \feld{1.4} & \feld{1.5} & \feld{1.6} & \\ \hline
+  2 Operationen und Rechenreihenfolge & \feld{2.1}\ \feld{2.2} & \feld{2.3}\ \feld{2.4} & \feld{2.5} & \feld{2.6} & \\ \hline
+  3 Brüche                          & \feld{3.1}\ \feld{3.2} & \feld{3.3}\ \feld{3.4} & \feld{3.5} & \feld{3.6} & \\ \hline
+  4 Proportionalität und Prozent    & \feld{4.1}\ \feld{4.2} & \feld{4.3}\ \feld{4.4} & \feld{4.5} & \feld{4.6} & \\ \hline
+  5 Terme                           & \feld{5.1}\ \feld{5.2} & \feld{5.3}\ \feld{5.4} & \feld{5.5} & \feld{5.6} & \\ \hline
+  6 Gleichungen                     & \feld{6.1}\ \feld{6.2} & \feld{6.3}\ \feld{6.4} & \feld{6.5} & \feld{6.6} & \\ \hline
+  7 Funktionen und Graphen          & \feld{7.1}\ \feld{7.2} & \feld{7.3}\ \feld{7.4} & \feld{7.5} & \feld{7.6} & \\ \hline
+  8 Geometrie und Grössen           & \feld{8.1}\ \feld{8.2} & \feld{8.3}\ \feld{8.4} & \feld{8.5} & \feld{8.6} & \\ \hline
+  9 Sprache $\leftrightarrow$ Mathematik & \feld{9.1}\ \feld{9.2} & \feld{9.3}\ \feld{9.4} & \feld{9.5} & \feld{9.6} & \\ \hline
+\end{tabular}
+\end{center}
+
+\textbf{Bemerkungen:}
+
+\vspace{4cm}
+
+\end{document}

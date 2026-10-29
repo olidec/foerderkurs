@@ -1,0 +1,456 @@
+# ===========================================================================
+# Strang 3: Brüche
+# ---------------------------------------------------------------------------
+# Felder:  3A Brüche als Zahlen   3B Rechnen mit Brüchen
+#          3C Brüche mit Variablen 3D Bruchterme
+# Felder pro Aufgabe siehe README.md
+# ===========================================================================
+strang: 3
+titel: Brüche
+aufgaben:
+
+# ---------------------------------------------------------------- 3A ------
+- id: 3A-01
+  stufe: 1
+  typ: Routine
+  ml: "3.3"
+  raum: 2
+  aufgabe: |
+    Ergänzen Sie.
+    \[ \frac{3}{4} = \frac{\kaestchen}{8} = \frac{\kaestchen}{20}
+       = \frac{15}{\kaestchen} \]
+  loesung: |
+    $6$; \ $15$; \ $20$
+
+- id: 3A-02
+  stufe: 1
+  typ: Routine
+  ml: "3.3"
+  raum: 2
+  aufgabe: |
+    Kürzen Sie so weit wie möglich.
+    \begin{multicols}{4}\begin{parts}
+      \part $\dfrac{6}{8}$ \part $\dfrac{15}{25}$
+      \part $\dfrac{12}{36}$ \part $\dfrac{18}{24}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{3}{4}$ \quad b) $\frac{3}{5}$ \quad c) $\frac{1}{3}$ \quad
+    d) $\frac{3}{4}$
+
+- id: 3A-03
+  stufe: 2
+  typ: Verständnis
+  ml: "3.3"
+  raum: 2.5
+  aufgabe: |
+    Ordnen Sie der Grösse nach, beginnend mit dem kleinsten Bruch.
+    \[ \frac{2}{3} \qquad \frac{3}{5} \qquad \frac{1}{2} \qquad \frac{5}{6} \]
+  loesung: |
+    $\frac{1}{2} < \frac{3}{5} < \frac{2}{3} < \frac{5}{6}$
+  fehler:
+    - antwort: 'nach Nennern geordnet, z.\,B.\ $\frac{1}{2}, \frac{2}{3}, \frac{3}{5}, \frac{5}{6}$'
+      hinweis: 'Zähler und Nenner dürfen nicht getrennt verglichen werden. Mini-Lektion 3.3.'
+
+- id: 3A-04
+  stufe: 2
+  typ: Verständnis
+  ml: "3.3"
+  raum: 3
+  aufgabe: |
+    Welcher Bruch ist grösser? Entscheiden Sie, \textbf{ohne} die Brüche
+    gleichnamig zu machen, und begründen Sie.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{4}{7}$ oder $\dfrac{4}{9}$
+      \part $\dfrac{5}{6}$ oder $\dfrac{6}{7}$
+      \part $\dfrac{7}{12}$ oder $\dfrac{1}{2}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{4}{7}$ \quad b) $\frac{6}{7}$ \quad c) $\frac{7}{12}$
+  weg: |
+    a) Gleiche Zähler: Siebtel sind grössere Teile als Neuntel.
+    b) Beide fehlen bis $1$: $\frac{1}{6}$ bzw.\ $\frac{1}{7}$. Der Abstand von
+    $\frac{6}{7}$ zu $1$ ist kleiner.
+    c) $\frac{1}{2} = \frac{6}{12} < \frac{7}{12}$.
+
+- id: 3A-05
+  stufe: 2
+  typ: Verständnis
+  ml: "3.3"
+  raum: 2.5
+  aufgabe: |
+    Welche Zahl liegt genau in der Mitte zwischen $\dfrac{1}{4}$ und
+    $\dfrac{1}{2}$?
+  loesung: |
+    $\frac{3}{8}$
+  weg: |
+    $\frac{1}{4} = \frac{2}{8}$ und $\frac{1}{2} = \frac{4}{8}$, also liegt
+    $\frac{3}{8}$ genau in der Mitte.
+  fehler:
+    - antwort: '$\frac{1}{3}$'
+      hinweis: 'Der Bruch mit dem Nenner «zwischen» $4$ und $2$ liegt nicht in der Mitte. Brüche zuerst gleichnamig machen. Mini-Lektion 3.3.'
+
+- id: 3A-06
+  stufe: 3
+  typ: Verständnis
+  ml: "3.3"
+  raum: 2.5
+  aufgabe: |
+    Geben Sie drei verschiedene Brüche an, die zwischen $\dfrac{1}{3}$ und
+    $\dfrac{1}{2}$ liegen.
+  loesung: |
+    z.\,B.\ $\frac{2}{5}$, $\frac{5}{12}$, $\frac{3}{7}$
+  weg: |
+    Mit Nenner $12$: $\frac{1}{3} = \frac{4}{12}$, $\frac{1}{2} = \frac{6}{12}$,
+    dazwischen $\frac{5}{12}$. Mit Nenner $24$ findet man noch mehr:
+    $\frac{9}{24}$, $\frac{10}{24}$, $\frac{11}{24}$.
+
+- id: 3A-07
+  stufe: 2
+  typ: Fehlersuche
+  ml: "3.3"
+  raum: 2.5
+  aufgabe: |
+    Tom sagt: «$\frac{1}{8}$ ist grösser als $\frac{1}{6}$, weil $8$ grösser
+    ist als $6$.» Was ist an Toms Überlegung falsch?
+  loesung: |
+    Je grösser der Nenner, desto kleiner die Teile: $\frac{1}{8} < \frac{1}{6}$.
+  weg: |
+    Eine Pizza in $8$ Stücke geteilt ergibt kleinere Stücke als in $6$ Stücke
+    geteilt.
+
+- id: 3A-08
+  stufe: 2
+  typ: Check
+  ml: "3.3"
+  raum: 2.5
+  aufgabe: |
+    \begin{parts}
+      \part Kürzen Sie: \ $\dfrac{14}{21}$
+      \part Ergänzen Sie: \ $\dfrac{5}{6} = \dfrac{\kaestchen}{18}$
+      \part Welcher Bruch ist grösser: \ $\dfrac{3}{4}$ oder $\dfrac{4}{5}$?
+    \end{parts}
+  loesung: |
+    a) $\frac{2}{3}$ \quad b) $15$ \quad c) $\frac{4}{5}$
+
+# ---------------------------------------------------------------- 3B ------
+- id: 3B-01
+  stufe: 1
+  typ: Routine
+  ml: "3.1"
+  raum: 2
+  aufgabe: |
+    Berechnen Sie und kürzen Sie, falls möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{2}{7} + \dfrac{3}{7}$
+      \part $\dfrac{5}{9} - \dfrac{2}{9}$
+      \part $\dfrac{3}{10} + \dfrac{9}{10}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{5}{7}$ \quad b) $\frac{1}{3}$ \quad c) $\frac{6}{5}$
+  fehler:
+    - antwort: '$\frac{5}{14}$ bei a)'
+      hinweis: 'Nur die Zähler werden addiert, der Nenner bleibt. Mini-Lektion 3.1.'
+
+- id: 3B-02
+  stufe: 1
+  typ: Routine
+  ml: "3.1"
+  raum: 2.5
+  aufgabe: |
+    Berechnen Sie und kürzen Sie, falls möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{1}{2} + \dfrac{1}{3}$
+      \part $\dfrac{3}{4} - \dfrac{1}{6}$
+      \part $\dfrac{2}{5} + \dfrac{1}{10}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{5}{6}$ \quad b) $\frac{7}{12}$ \quad c) $\frac{1}{2}$
+  fehler:
+    - antwort: '$\frac{2}{5}$ bei a)'
+      hinweis: 'Zähler und Nenner wurden getrennt addiert. Brüche zuerst gleichnamig machen. Mini-Lektion 3.1.'
+
+- id: 3B-03
+  stufe: 2
+  typ: Routine
+  ml: "3.1"
+  bruecke: 3C-01
+  raum: 3
+  aufgabe: |
+    Berechnen Sie und kürzen Sie, falls möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{2}{3} + \dfrac{1}{4}$
+      \part $\dfrac{5}{6} - \dfrac{3}{8}$
+      \part $\dfrac{1}{4} + \dfrac{1}{6} - \dfrac{1}{3}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{11}{12}$ \quad b) $\frac{11}{24}$ \quad c) $\frac{1}{12}$
+  weg: |
+    b) $\frac{20}{24} - \frac{9}{24} = \frac{11}{24}$ \quad
+    c) $\frac{3}{12} + \frac{2}{12} - \frac{4}{12} = \frac{1}{12}$
+  fehler:
+    - antwort: '$\frac{3}{7}$ bei a)'
+      hinweis: 'Zähler und Nenner wurden getrennt addiert. Mini-Lektion 3.1.'
+
+- id: 3B-04
+  stufe: 1
+  typ: Routine
+  ml: "3.2"
+  raum: 2.5
+  aufgabe: |
+    Berechnen Sie und kürzen Sie, falls möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{2}{3} \cdot \dfrac{3}{5}$
+      \part $4 \cdot \dfrac{3}{8}$
+      \part $\dfrac{5}{6} \cdot \dfrac{9}{10}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{2}{5}$ \quad b) $\frac{3}{2}$ \quad c) $\frac{3}{4}$
+  fehler:
+    - antwort: '$\frac{12}{32}$ bei b)'
+      hinweis: 'Zähler und Nenner wurden mit $4$ multipliziert. Das ist Erweitern und ändert den Wert nicht. Mini-Lektion 3.2.'
+
+- id: 3B-05
+  stufe: 2
+  typ: Routine
+  ml: "3.2"
+  raum: 2.5
+  aufgabe: |
+    Berechnen Sie.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{3}{4} \geteilt \dfrac{3}{8}$
+      \part $\dfrac{2}{5} \geteilt 4$
+      \part $6 \geteilt \dfrac{3}{4}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $2$ \quad b) $\frac{1}{10}$ \quad c) $8$
+  fehler:
+    - antwort: '$\frac{8}{5}$ bei b)'
+      hinweis: 'Dividieren durch $4$ heisst multiplizieren mit $\frac{1}{4}$, nicht mit $4$. Mini-Lektion 3.2.'
+    - antwort: '$\frac{9}{2}$ bei c)'
+      hinweis: 'Durch einen Bruch kleiner als $1$ zu dividieren, macht das Ergebnis grösser. Mit dem Kehrwert multiplizieren. Mini-Lektion 3.2.'
+
+- id: 3B-06
+  stufe: 3
+  typ: Routine
+  ml: "3.2"
+  raum: 3
+  aufgabe: |
+    Vereinfachen Sie die Doppelbrüche.
+    \begin{multicols}{2}\begin{parts}
+      \part $\dfrac{\;\frac{2}{3}\;}{\;\frac{4}{9}\;}$
+      \part $\dfrac{\;\frac{1}{2} + \frac{1}{3}\;}{\;\frac{1}{6}\;}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{3}{2}$ \quad b) $5$
+  weg: |
+    a) $\frac{2}{3} \geteilt \frac{4}{9} = \frac{2}{3} \cdot \frac{9}{4}
+    = \frac{3}{2}$ \quad
+    b) $\frac{5}{6} \geteilt \frac{1}{6} = 5$
+
+- id: 3B-07
+  stufe: 2
+  typ: Fehlersuche
+  ml: "3.1"
+  raum: 2.5
+  aufgabe: |
+    Lea rechnet $\dfrac{2}{3} + \dfrac{1}{4} = \dfrac{3}{7}$. Begründen Sie,
+    \textbf{ohne} die Summe zu berechnen, warum das nicht stimmen kann.
+  loesung: |
+    $\frac{3}{7}$ ist kleiner als $\frac{1}{2}$, aber schon $\frac{2}{3}$
+    allein ist grösser als $\frac{1}{2}$. Die Summe muss grösser als
+    $\frac{2}{3}$ sein.
+
+- id: 3B-08
+  stufe: 2
+  typ: Text
+  ml: "3.2"
+  raum: 2.5
+  aufgabe: |
+    Ein Rezept braucht $\frac{3}{4}$\,Liter Milch. Sie bereiten nur
+    $\frac{2}{3}$ der Menge zu. Wie viel Milch brauchen Sie?
+  loesung: |
+    $\frac{2}{3} \cdot \frac{3}{4} = \frac{1}{2}$, also einen halben Liter.
+  fehler:
+    - antwort: '$\frac{3}{4} - \frac{2}{3}$ gerechnet'
+      hinweis: '«$\frac{2}{3}$ von» bedeutet «$\frac{2}{3}$ mal». Werkzeugkasten W1.'
+
+- id: 3B-09
+  stufe: 2
+  typ: Check
+  ml: "3.1"
+  raum: 3
+  aufgabe: |
+    Berechnen Sie und kürzen Sie, falls möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{3}{5} + \dfrac{1}{4}$
+      \part $\dfrac{5}{6} \cdot \dfrac{3}{10}$
+      \part $\dfrac{2}{3} \geteilt \dfrac{5}{6}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{17}{20}$ \quad b) $\frac{1}{4}$ \quad c) $\frac{4}{5}$
+
+# ---------------------------------------------------------------- 3C ------
+- id: 3C-01
+  stufe: 2
+  typ: Routine
+  ml: "3.1"
+  bruecke: 3B-03
+  raum: 3
+  aufgabe: |
+    Fassen Sie zusammen und vereinfachen Sie.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{a}{3} + \dfrac{b}{4}$
+      \part $\dfrac{x}{6} - \dfrac{x}{8}$
+      \part $\dfrac{2}{x} + \dfrac{3}{x}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{4a + 3b}{12}$ \quad b) $\frac{x}{24}$ \quad c) $\frac{5}{x}$
+  weg: |
+    b) $\frac{4x}{24} - \frac{3x}{24} = \frac{x}{24}$
+  fehler:
+    - antwort: '$\frac{a + b}{7}$ bei a)'
+      hinweis: 'Dieselbe Regel wie bei Zahlen: zuerst gleichnamig machen. Vergleichen Sie mit Aufgabe 3B-03. Mini-Lektion 3.1.'
+    - antwort: '$\frac{5}{2x}$ bei c)'
+      hinweis: 'Bei gleichen Nennern werden nur die Zähler addiert. Mini-Lektion 3.1.'
+
+- id: 3C-02
+  stufe: 1
+  typ: Routine
+  ml: "3.2"
+  raum: 2
+  aufgabe: |
+    Kürzen Sie so weit wie möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{6a}{9}$
+      \part $\dfrac{4x}{8x}$
+      \part $\dfrac{15ab}{5b}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{2a}{3}$ \quad b) $\frac{1}{2}$ \quad c) $3a$
+
+- id: 3C-03
+  stufe: 2
+  typ: Routine
+  ml: "3.2"
+  raum: 2.5
+  aufgabe: |
+    Berechnen Sie und kürzen Sie so weit wie möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{a}{b} \cdot \dfrac{b}{c}$
+      \part $\dfrac{3x}{4} \cdot \dfrac{2}{x}$
+      \part $\dfrac{2a}{5} \geteilt \dfrac{4a}{15}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{a}{c}$ \quad b) $\frac{3}{2}$ \quad c) $\frac{3}{2}$
+
+- id: 3C-04
+  stufe: 2
+  typ: Fehlersuche
+  ml: "3.2"
+  raum: 2.5
+  aufgabe: |
+    Richtig oder falsch? Begründen Sie bei den falschen Aussagen.
+    \begin{parts}
+      \part $\dfrac{x + 5}{5} = x + 1$ \hfill \wahl{richtig}\quad \wahlr{falsch}
+      \part $\dfrac{5x}{5} = x$ \hfill \wahlr{richtig}\quad \wahl{falsch}
+      \part $\dfrac{2x + 4}{2} = x + 2$ \hfill \wahlr{richtig}\quad \wahl{falsch}
+      \part $\dfrac{x + 3}{x + 5} = \dfrac{3}{5}$ \hfill \wahl{richtig}\quad \wahlr{falsch}
+    \end{parts}
+  loesung: |
+    a) falsch \quad b) richtig \quad c) richtig \quad d) falsch
+  weg: |
+    Gekürzt werden dürfen nur \emph{Faktoren}, nicht Summanden. Bei c) steckt
+    im Zähler der Faktor $2$: $2x + 4 = 2 \cdot (x + 2)$. Bei a) und d) ist
+    das nicht so. Zahlenprobe bei a): Für $x = 5$ ist links $2$, rechts $6$.
+  fehler:
+    - antwort: 'a) oder d) als richtig angekreuzt'
+      hinweis: 'Aus Summen darf nicht gekürzt werden. Zahlenprobe machen. Mini-Lektion 3.2.'
+
+- id: 3C-05
+  stufe: 3
+  typ: Routine
+  ml: "3.1"
+  raum: 3
+  aufgabe: |
+    Fassen Sie zusammen.
+    \begin{multicols}{2}\begin{parts}
+      \part $\dfrac{1}{x} + \dfrac{1}{2x}$
+      \part $\dfrac{x}{2} + \dfrac{x + 1}{3}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{3}{2x}$ \quad b) $\frac{5x + 2}{6}$
+  weg: |
+    a) $\frac{2}{2x} + \frac{1}{2x} = \frac{3}{2x}$ \quad
+    b) $\frac{3x}{6} + \frac{2 \cdot (x + 1)}{6} = \frac{5x + 2}{6}$
+  fehler:
+    - antwort: '$\frac{5x + 1}{6}$ bei b)'
+      hinweis: 'Beim Erweitern muss der ganze Zähler $x + 1$ mit $2$ multipliziert werden. Klammer setzen!'
+
+- id: 3C-06
+  stufe: 2
+  typ: Text
+  ml: "3.2"
+  raum: 2
+  aufgabe: |
+    Ein Stoffstück der Länge $L$ wird in drei gleich lange Teile
+    geschnitten. Eines dieser Teile wird nochmals halbiert. Wie lang ist ein
+    solches halbes Teil?
+  loesung: |
+    $\frac{L}{6}$ (bzw.\ $\frac{1}{2} \cdot \frac{L}{3}$)
+
+- id: 3C-07
+  stufe: 2
+  typ: Check
+  ml: "3.1"
+  raum: 3
+  aufgabe: |
+    Vereinfachen Sie.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{x}{2} + \dfrac{x}{5}$
+      \part $\dfrac{4a}{6}$
+      \part $\dfrac{3}{a} \cdot \dfrac{a}{9}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $\frac{7x}{10}$ \quad b) $\frac{2a}{3}$ \quad c) $\frac{1}{3}$
+
+# ---------------------------------------------------------------- 3D ------
+- id: 3D-01
+  stufe: 2
+  typ: Routine
+  ml: "3.1"
+  bruecke: 3C-01
+  raum: 2.5
+  aufgabe: |
+    Fassen Sie zusammen: \quad $\dfrac{1}{x} + \dfrac{1}{x + 1}$
+  loesung: |
+    $\frac{2x + 1}{x \cdot (x + 1)}$
+
+- id: 3D-02
+  stufe: 3
+  typ: Routine
+  ml: "3.2"
+  raum: 3
+  aufgabe: |
+    Kürzen Sie, falls möglich.
+    \begin{multicols}{3}\begin{parts}
+      \part $\dfrac{3x + 6}{x + 2}$
+      \part $\dfrac{x^2 - 9}{x - 3}$
+      \part $\dfrac{x + 5}{5}$
+    \end{parts}\end{multicols}
+  loesung: |
+    a) $3$ \quad b) $x + 3$ \quad c) nicht kürzbar
+  weg: |
+    a) $\frac{3 \cdot (x + 2)}{x + 2} = 3$ \quad
+    b) $\frac{(x - 3) \cdot (x + 3)}{x - 3} = x + 3$
+
+- id: 3D-03
+  stufe: 2
+  typ: Verständnis
+  ml: "3.2"
+  raum: 2
+  aufgabe: |
+    Für welchen Wert von $x$ ist der Term $\dfrac{3}{x - 2}$ nicht definiert?
+    Begründen Sie.
+  loesung: |
+    Für $x = 2$, weil dann der Nenner $0$ ist und man nicht durch $0$ teilen
+    kann.
